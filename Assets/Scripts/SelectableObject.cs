@@ -31,43 +31,44 @@ public class SelectableObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	    if (isSelected && attachedController != null)
         {
-            positionDelta = attachedController.transform.position - interationPoint.position;
-            Debug.Log(positionDelta);
-            this.rigidbody.velocity = positionDelta * velocityFactor * Time.fixedDeltaTime;
-
-            rotationDelta = attachedController.transform.rotation * Quaternion.Inverse(interationPoint.rotation);
-            rotationDelta.ToAngleAxis(out angle, out axis);
-
-            if (angle > 180)
+            if (true)
             {
-                angle -= 360;
-            }
+                positionDelta = attachedController.transform.position - interationPoint.position;
+                rigidbody.velocity = positionDelta * velocityFactor * Time.fixedDeltaTime;
 
-            this.rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
+                rotationDelta = attachedController.transform.rotation * Quaternion.Inverse(interationPoint.rotation);
+                rotationDelta.ToAngleAxis(out angle, out axis);
+
+                if (angle > 180)
+                {
+                    angle -= 360;
+                }
+
+                rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
+            } else
+            {
+                transform.position = attachedController.transform.position;
+            }
         }
 	}
 
     public void OnHighlightBegin(TrackedController controller)
     {
-        Debug.Log("OnHighlightBegin");
-
         attachedController = controller;
         isHighlighted = true;
     }
 
     public void OnHighlightEnd(TrackedController controller)
     {
-        Debug.Log("OnHighlightEnd");
-
+        attachedController = null;
         isHighlighted = false;
     }
 
     public void OnSelectedBegin(TrackedController controller)
     {
-        Debug.Log("OnBeginSelected");
-
         attachedController = controller;
 
         interationPoint.position = controller.transform.position;
@@ -84,8 +85,5 @@ public class SelectableObject : MonoBehaviour {
             attachedController = null;
             isSelected = false;
         }
-        Debug.Log("OnEndSelected");
-        //controller.ClearSelectedObject();
-        //isSelected = false;
     }
 }
