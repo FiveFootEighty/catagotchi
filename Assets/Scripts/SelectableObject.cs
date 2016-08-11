@@ -86,4 +86,21 @@ public class SelectableObject : MonoBehaviour {
             isSelected = false;
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // if you have a splatter
+        if (GetComponent<SplatterBehavior>() != null)
+        {
+            // if you havent splatterd yet
+            if (collision.gameObject.tag == "Wall" && !GetComponent<SplatterBehavior>().hasSplattered)
+            {
+                // splatter
+                ContactPoint contact = collision.contacts[0];
+                Debug.Log(collision.gameObject.name);
+                Debug.Log(contact.normal * 90);
+                GetComponent<SplatterBehavior>().CreateSplatter(collision.gameObject, contact.point, collision.gameObject.transform.rotation.eulerAngles);
+            }
+        }
+    }
 }
