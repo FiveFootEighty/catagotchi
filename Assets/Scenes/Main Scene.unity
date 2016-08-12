@@ -98,7 +98,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 985843}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sys_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 7412447}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 25203407}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: gdc2015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 69166218}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 97657207}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,11 +303,11 @@ Prefab:
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1345307354}
+      objectReference: {fileID: 1786098999}
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2111833559}
+      objectReference: {fileID: 1050327719}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
@@ -331,6 +331,34 @@ Prefab:
     - target: {fileID: 11417168, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: modelOverride
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 147176, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 124034, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 192944, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 159396, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 123270, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 189822, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 155680, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11420968, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
@@ -363,6 +391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65357194526fcf3419e16d002f36a6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  steamVRObject: {fileID: 810998446}
+  teleportReticle: {fileID: 874876041}
 --- !u!1 &160000478
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +401,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 160000479}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +429,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 199139358}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: rgrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +458,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 234780882}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +555,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 241378301}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: scroll_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +588,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 311788331}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: handgrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +617,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 320215927}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +814,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413876472}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +842,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 435990897}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,6 +889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65357194526fcf3419e16d002f36a6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  steamVRObject: {fileID: 810998446}
+  teleportReticle: {fileID: 874876041}
 --- !u!54 &466531743
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -882,7 +914,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 481127598}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -911,7 +943,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 517196539}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1125,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 605295438}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trackpad_touch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1160,7 +1192,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 662570488}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: lgrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,7 +1225,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 760482870}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1253,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 761693540}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: handgrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1463,7 +1495,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 801202995}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1506,7 +1538,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 811163433}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,7 +1570,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 840903456}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1598,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 852198698}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trackhat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1627,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 854404288}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1624,7 +1656,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 861866800}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trackpad_scroll_cut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1645,6 +1677,85 @@ Transform:
   - {fileID: 811163433}
   m_Father: {fileID: 681398750}
   m_RootOrder: 13
+--- !u!1 &874876041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 874876045}
+  - 33: {fileID: 874876044}
+  - 64: {fileID: 874876043}
+  - 23: {fileID: 874876042}
+  m_Layer: 2
+  m_Name: TeleportReticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!23 &874876042
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 874876041}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 8a1849b259a913443a3700f35049fa94, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &874876043
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 874876041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &874876044
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 874876041}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &874876045
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 874876041}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.282, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &918373012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1764,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 918373013}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: scroll_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1682,7 +1793,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 931057277}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1710,7 +1821,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 946036700}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1826,7 +1937,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 993574251}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1855,7 +1966,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 994386243}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trackpad_touch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,7 +1995,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1013562850}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trackpad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1913,7 +2024,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1049758072}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1933,6 +2044,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2129814543}
   m_RootOrder: 0
+--- !u!21 &1050327719
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: PixelSnap
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1061811772
 Prefab:
   m_ObjectHideFlags: 0
@@ -2095,7 +2235,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1104071707}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2123,7 +2263,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1158903747}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2151,7 +2291,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1186137436}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2179,7 +2319,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1243096555}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2207,7 +2347,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1258528320}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2235,7 +2375,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1274141869}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2263,7 +2403,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1292868398}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2447,7 +2587,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1343283008}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2467,134 +2607,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 25203407}
   m_RootOrder: 0
---- !u!43 &1345307354
-Mesh:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 8
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 24
-    topology: 0
-    firstVertex: 0
-    vertexCount: 8
-    localAABB:
-      m_Center: {x: 0, y: 0.01, z: 0}
-      m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
-  m_Skin: []
-  m_VertexData:
-    m_CurrentChannels: 13
-    m_VertexCount: 8
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 288
-    _typelessdata: 0000c03f0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.01, z: 0}
-    m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshOptimized: 0
 --- !u!1 &1366152846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,7 +2615,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1366152847}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2631,7 +2643,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1378157869}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2822,7 +2834,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1469568094}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: gdc2015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2851,7 +2863,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1506195050}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2879,7 +2891,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1523312359}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2974,7 +2986,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1580615071}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sys_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3003,7 +3015,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1601390684}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3031,7 +3043,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1631652941}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3060,7 +3072,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1653507894}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3088,7 +3100,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1655440169}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3116,7 +3128,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1656098716}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3219,7 +3231,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1681305334}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: led
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3248,7 +3260,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1734095899}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: led
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3337,6 +3349,134 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1771071913}
   m_Mesh: {fileID: 4300000, guid: ccc82e01348454744a702e67a5224616, type: 3}
+--- !u!43 &1786098999
+Mesh:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  serializedVersion: 8
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 13
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 0000c03f0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshOptimized: 0
 --- !u!1 &1790112012
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3636,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1833132097}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3590,7 +3730,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1872006988}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trackpad_scroll_cut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3619,7 +3759,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1894867215}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trackpad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3648,7 +3788,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1904062700}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3676,7 +3816,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1977951324}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: lgrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3705,7 +3845,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1984163677}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3866,7 +4006,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2006551338}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3894,7 +4034,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2042234049}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3923,7 +4063,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2064339425}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3951,7 +4091,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2072898973}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3979,7 +4119,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2080317260}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4068,35 +4208,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2083579247}
   m_Mesh: {fileID: 4300000, guid: ccc82e01348454744a702e67a5224616, type: 3}
---- !u!21 &2111833559
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: PixelSnap
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2125976305
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,7 +4216,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2125976306}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4134,7 +4245,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2129814543}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: rgrip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
