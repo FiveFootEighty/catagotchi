@@ -37,7 +37,11 @@ public class SelectableObject : MonoBehaviour {
             if (true)
             {
                 positionDelta = attachedController.transform.position - interationPoint.position;
-                rigidbody.velocity = positionDelta * velocityFactor * Time.fixedDeltaTime;
+                
+                Vector3 objectVelocity = positionDelta * velocityFactor * Time.fixedDeltaTime;
+                objectVelocity = new Vector3(Mathf.Clamp(objectVelocity.x, -2, 2), Mathf.Clamp(objectVelocity.y, -2, 2), Mathf.Clamp(objectVelocity.z, -2, 2));
+
+                rigidbody.velocity = objectVelocity;
 
                 rotationDelta = attachedController.transform.rotation * Quaternion.Inverse(interationPoint.rotation);
                 rotationDelta.ToAngleAxis(out angle, out axis);
@@ -48,9 +52,6 @@ public class SelectableObject : MonoBehaviour {
                 }
 
                 rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
-            } else
-            {
-                transform.position = attachedController.transform.position;
             }
         }
 	}
@@ -97,8 +98,6 @@ public class SelectableObject : MonoBehaviour {
             {
                 // splatter
                 ContactPoint contact = collision.contacts[0];
-                Debug.Log(collision.gameObject.name);
-                Debug.Log(contact.normal * 90);
                 GetComponent<SplatterBehavior>().CreateSplatter(collision.gameObject, contact.point, collision.gameObject.transform.rotation.eulerAngles);
             }
         }
