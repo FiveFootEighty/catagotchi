@@ -9,7 +9,6 @@ public class SplatterBehavior : MonoBehaviour {
     public void CreateSplatter(GameObject hitObject, Vector3 hitPosition, Vector3 hitRotation)
     {
         hasSplattered = true;
-        Debug.Log(hitRotation + "!");
-        GameObject splatterObject = (GameObject)Instantiate(splatter, hitPosition, Quaternion.Euler(hitRotation));
+        Instantiate(splatter, hitPosition, Quaternion.Euler(hitRotation));
     }
 }
