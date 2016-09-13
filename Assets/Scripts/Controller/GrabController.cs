@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedControllerTriggerListener, TrackedControllerBase.TrackedControllerGripListener
+public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedControllerTriggerListener
 {
 
     private TrackedControllerBase trackedControllerBase;
@@ -19,7 +19,6 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     void Start () {
         trackedControllerBase = GetComponentInParent<TrackedControllerBase>();
         trackedControllerBase.RegisterTriggerListener(this);
-        trackedControllerBase.RegisterGripListener(this);
 
         isGrabbed = false;
         isHighlighted = false;
@@ -58,27 +57,6 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
 
 
 
-    public void OnGripPress()
-    {
-
-    }
-    public void OnGripPressUp()
-    {
-
-    }
-    public void OnGripPressDown()
-    {
-        if (isGrabbed)
-        {
-            selectedObject.GetComponent<SelectableObject>().Freeze();
-            UngrabObject();
-        }
-    }
-
-
-
-
-
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.GetComponent<SelectableObject>() != null)
@@ -90,7 +68,7 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
 
     void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject == selectedObject && isHighlighted)
+        if (collider.gameObject == selectedObject && isHighlighted && !isGrabbed)
         {
             UnhighlightObject(collider.gameObject);
         }
