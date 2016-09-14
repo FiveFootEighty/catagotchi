@@ -61,7 +61,6 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     {
         if (collider.gameObject.GetComponent<SelectableObject>() != null)
         {
-            // can select this one  
             HighlightObject(collider.gameObject);
         }
     }

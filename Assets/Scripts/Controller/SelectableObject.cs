@@ -15,11 +15,13 @@ public class SelectableObject : MonoBehaviour {
     public float rotationFactor = 400f;
     private Quaternion rotationDelta;
 
-    private Transform interationPoint;
-    
+    private Transform interactionPoint;
 
-	// Use this for initialization
-	void Start () {
+    public bool usePhysics;
+
+
+    // Use this for initialization
+    void Start () {
         rigidbody = GetComponent<Rigidbody>();
 
         velocityFactor /= rigidbody.mass;
@@ -31,25 +33,74 @@ public class SelectableObject : MonoBehaviour {
 
         if (isGrabbed && controller != null)
         {
-            // move the object with the controller
-            positionDelta = controller.transform.position - interationPoint.position;
-
-            rigidbody.velocity = positionDelta * velocityFactor * Time.fixedDeltaTime;
-
-            float angle;
-            Vector3 axis;
-
-            rotationDelta = controller.transform.rotation * Quaternion.Inverse(interationPoint.rotation);
-            rotationDelta.ToAngleAxis(out angle, out axis);
-
-            while (angle > 180)
+            if (!usePhysics)
             {
-                angle -= 360;
-            }
+                float time = 30f * Vector3.Distance(transform.position, controller.transform.position - interactionPoint.position) - 0.5f;
+                
+                if (time < 1)
+                {
+                    time = 1f;
+                }
 
-            rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
+                GetComponent<Rigidbody>().position = new Vector3(
+                    OtherSlide(transform.position.x, interactionPoint.position.x, time),
+                    OtherSlide(transform.position.y, interactionPoint.position.y, time),
+                    OtherSlide(transform.position.z, interactionPoint.position.z, time)
+                    );
+
+                transform.rotation = interactionPoint.rotation;
+            } else
+            {
+                // move the object with the controller
+                positionDelta = controller.transform.position - interactionPoint.position;
+
+                rigidbody.velocity = positionDelta * velocityFactor * Time.fixedDeltaTime;
+
+                float angle;
+                Vector3 axis;
+
+                rotationDelta = controller.transform.rotation * Quaternion.Inverse(interactionPoint.rotation);
+                rotationDelta.ToAngleAxis(out angle, out axis);
+
+                while (angle > 180)
+                {
+                    angle -= 360;
+                }
+
+                rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
+            }
         }
 	}
+
+    private float OtherSlide(float curVal, float targetVal, float speed)
+    {
+        float change = Time.deltaTime * speed;
+        if (curVal < targetVal)
+        {
+            curVal += change;
+            if (curVal > targetVal) curVal = targetVal;
+        }
+        else
+        {
+            curVal -= change;
+            if (curVal < targetVal) curVal = targetVal;
+        }
+        return curVal;
+    }
+
+    private IEnumerator SlideTo(Vector3 positionStart, Vector3 positionEnd, float time)
+    {
+        float elapsedTime = 0;
+        transform.position = positionStart;
+        while (elapsedTime < time)
+        {
+            transform.position = Vector3.Lerp(transform.position, positionEnd, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    
 
     public void OnGrab(GrabController controller)
     {
@@ -58,21 +109,41 @@ public class SelectableObject : MonoBehaviour {
 
         Unfreeze();
 
-        if (interationPoint == null)
+        if (interactionPoint == null)
         {
             // make this better
-            interationPoint = new GameObject().transform;
+            interactionPoint = new GameObject().transform;
+            interactionPoint.name = "InteractionPoint";
         }
 
-        interationPoint.position = controller.transform.position;
-        interationPoint.rotation = controller.transform.rotation;
-        interationPoint.SetParent(transform, true);
+        if (usePhysics)
+        {
+            interactionPoint.position = controller.transform.position;
+            interactionPoint.rotation = controller.transform.rotation;
+
+            interactionPoint.SetParent(transform, true);
+        } else
+        {
+            interactionPoint.position = controller.transform.position - (controller.transform.position - transform.position);
+            interactionPoint.rotation = transform.rotation;
+            interactionPoint.SetParent(controller.transform, true);
+
+            GetComponent<Rigidbody>().useGravity = false;
+        }
     }
 
     public void OnUngrab(GrabController controller)
     {
         this.controller = null;
         isGrabbed = false;
+
+        if (interactionPoint != null)
+        {
+            Destroy(interactionPoint.gameObject);
+        }
+
+        GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().isKinematic = false;
     }
 
     public void OnHighlight(GrabController controller)
@@ -83,7 +154,10 @@ public class SelectableObject : MonoBehaviour {
 
     public void OnUnhighlight(GrabController controller)
     {
-        this.controller = null;
+        if (!isGrabbed)
+        {
+            this.controller = null;
+        }
         isHighlighted = false;
     }
 
