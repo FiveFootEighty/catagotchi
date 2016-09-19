@@ -14,16 +14,14 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     public bool isGrabbed = false;
     public Vector3 velocity;
     Vector3 previousPosition = Vector3.zero;
+    private Transform controllerModel;
 
-    private Transform model;
-    
 
-    // Use this for initialization
     void Start () {
         trackedControllerBase = GetComponentInParent<TrackedControllerBase>();
         trackedControllerBase.RegisterTriggerListener(this);
 
-        model = transform.Find("Model");
+        controllerModel = transform.Find("Model");
 
         isGrabbed = false;
         isHighlighted = false;
@@ -89,7 +87,7 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
         isGrabbed = true;
         selectedObject.GetComponent<SelectableObject>().OnGrab(this);
 
-        model.gameObject.SetActive(false);
+        controllerModel.gameObject.SetActive(false);
     }
 
     void UngrabObject()
@@ -99,7 +97,7 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
         selectedObject.GetComponent<Rigidbody>().velocity = velocity;
         selectedObject = null;
 
-        model.gameObject.SetActive(true);
+        controllerModel.gameObject.SetActive(true);
     }
 
     void HighlightObject(GameObject gameObject)

@@ -9,6 +9,9 @@ public class SelectableObject : MonoBehaviour {
     private bool isGrabbed;
     private bool isHighlighted;
 
+    // Both the velocityfactor and the rotationfactor are variables that need to be played with along with the mass of the object
+    // to get just right. A velocity facotr that is too high wil cause stuttering and a Vf that is too low will cause too much lag as the
+    // object tries to get back to it's interaction point.
     public float velocityFactor = 5000f;
     private Vector3 positionDelta;
 
@@ -17,8 +20,7 @@ public class SelectableObject : MonoBehaviour {
 
     private Transform interationPoint;
     
-
-	// Use this for initialization
+    
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
 
@@ -26,12 +28,11 @@ public class SelectableObject : MonoBehaviour {
         rotationFactor /= rigidbody.mass;
     }
 	
-	// Update is called once per frame
 	void Update () {
 
         if (isGrabbed && controller != null)
         {
-            // move the object with the controller
+            // calculate a velocity to apply to the object to get it to it's original interaction point. Then apply it to the rigidbody
             positionDelta = controller.transform.position - interationPoint.position;
 
             rigidbody.velocity = positionDelta * velocityFactor * Time.fixedDeltaTime;
@@ -60,8 +61,8 @@ public class SelectableObject : MonoBehaviour {
 
         if (interationPoint == null)
         {
-            // make this better
             interationPoint = new GameObject().transform;
+            interationPoint.name = "InteractionPoint";
         }
 
         interationPoint.position = controller.transform.position;
