@@ -10,16 +10,15 @@ public class TeleportController : MonoBehaviour, TrackedControllerBase.TrackedCo
     private bool isTeleporting = false;
     private bool validTeleportSpot = false;
 
-    // Use this for initialization
+    [HideInInspector]
+    public GameObject head;
+    
     void Start () {
         trackedControllerBase = GetComponentInParent<TrackedControllerBase>();
         trackedControllerBase.RegisterTrackpadListener(this);
-    }
-	
-	// Update is called once per frame
-	void Update () {
 
-	}
+        head = GameObject.Find("Camera (eye)");
+    }
 
     public void OnTrackpadTouched(int location) { }
     public void OnTrackpadPressDown(int location) { }
@@ -69,8 +68,10 @@ public class TeleportController : MonoBehaviour, TrackedControllerBase.TrackedCo
     {
         if (location == TrackedControllerBase.TRACKPAD_DOWN && isTeleporting && validTeleportSpot)
         {
-            //teleport there
-            trackedControllerBase.steamVRObject.transform.position = teleportReticle.transform.position;
+            // teleport there
+            Vector3 distanceFromCenter = trackedControllerBase.steamVRObject.transform.position - head.transform.position;
+            distanceFromCenter.y = 0;
+            trackedControllerBase.steamVRObject.transform.position = teleportReticle.transform.position + distanceFromCenter;
             isTeleporting = false;
             teleportReticle.SetActive(false);
         }
