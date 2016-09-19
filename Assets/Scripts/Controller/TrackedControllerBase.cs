@@ -21,8 +21,10 @@ public class TrackedControllerBase : MonoBehaviour {
     private Valve.VR.EVRButtonId menuButton = Valve.VR.EVRButtonId.k_EButton_ApplicationMenu;
     private Valve.VR.EVRButtonId axis0 = Valve.VR.EVRButtonId.k_EButton_Axis0;
 
-    private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
-    private SteamVR_TrackedObject trackedObj;
+    [HideInInspector]
+    public SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+    [HideInInspector]
+    public SteamVR_TrackedObject trackedObj;
 
     public GameObject steamVRObject;
 
