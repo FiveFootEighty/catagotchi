@@ -32,7 +32,7 @@ public class TrackedControllerBase : MonoBehaviour {
     public SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
     [HideInInspector]
     public SteamVR_TrackedObject trackedObj;
-
+    [HideInInspector]
     public GameObject steamVRObject;
 
     /// <summary>
