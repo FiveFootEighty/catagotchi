@@ -16,6 +16,9 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     Vector3 previousPosition = Vector3.zero;
     private Transform controllerModel;
 
+    private Transform model;
+
+    public Animator animator;
 
     void Start () {
         trackedControllerBase = GetComponentInParent<TrackedControllerBase>();
@@ -42,6 +45,8 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     }
     public void OnTriggerPressUp()
     {
+        animator.SetBool("ShouldGrab", false);
+
         if (isGrabbed)
         {
             UngrabObject();
@@ -49,6 +54,8 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     }
     public void OnTriggerPressDown()
     {
+        animator.SetBool("ShouldGrab", true);
+
         if (isHighlighted && !isGrabbed && selectedObject != null)
         {
             UnhighlightObject(selectedObject);
