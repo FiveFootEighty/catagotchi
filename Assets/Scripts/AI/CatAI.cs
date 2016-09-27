@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 /**
@@ -7,19 +8,29 @@ using System.Collections.Generic;
 public class CatAI {
 	// fields
 	private MentalState mentalState;
-	private CatActiveState currentActiveState;
+	private ActiveState currentActiveState;
 	private CatPhysicalState physicalState;
 
-	private CatEvent lastTickEvent = CatEvent.NONE;
-	private HashSet<CatEvent> currentTickEvents;
+	private AIEvent lastTickEvent;
+
+	/*
+	 * Explore the idea of making currentEvents a combination set / array of Linked Lists 
+	 * (or some other weird data structure) where each index indicates duration (in seconds) 
+	 * so that I can give events a lifespan (that can be renewed)
+	 */
+	//private Dictionary<AIEvent, int> currentEvents;
+	private HashSet<AIEvent> currentTickEvents; 
 
 	private float lastTick = 0.0f;
+	private float lastHungerTick = 0.0f;
+	private float lastPainTick = 0.0f;
 
-	public CatAI(CatActiveState initialActiveState) {
+	public CatAI(ActiveState initialActiveState) {
 		this.currentActiveState = initialActiveState;
 		this.physicalState = new CatPhysicalState();
 		this.mentalState = new MentalState();
-		this.currentTickEvents = new HashSet<CatEvent>();
+		this.currentTickEvents = new HashSet<AIEvent>();
+		this.lastTickEvent = new AIEvent(CatEvent.NONE, 0);
 	}
 
 	/**
@@ -29,20 +40,17 @@ public class CatAI {
 	 */
 	private void updateActiveState() {
 
-		CatEvent topEvent = this.determineMostPressingEvent();
+		AIEvent topEvent = this.determineMostPressingEvent();
 
-		if(!lastTickEvent.Equals(topEvent)) {
+		if(!topEvent.Equals(lastTickEvent)) {
 			// react to the new more pressing event
-			switch(topEvent) {
+			switch((CatEvent)topEvent.eventType) {
 
-			case CatEvent.DISTRACTED_BY_OBJECT:
-				this.currentActiveState = CatActiveState.HUNTING;
+			case CatEvent.HUNGRY:
+				this.currentActiveState = new HuntingState();
 				break;
 			case CatEvent.PET:
-				this.currentActiveState = CatActiveState.CUDDLING;
-				break;
-			case CatEvent.BORED:
-				this.currentActiveState = CatActiveState.RESTING;
+				this.currentActiveState = new CuddlingState();
 				break;
 			}
 
@@ -53,37 +61,55 @@ public class CatAI {
 	/** 
 	 * Determine the most pressing event based on the cat's physical and mental states
 	 */
-	private CatEvent determineMostPressingEvent() {
-		CatEvent topEvent = this.lastTickEvent;
-		foreach(CatEvent e in currentTickEvents) {
-			topEvent = e;
+	private AIEvent determineMostPressingEvent() {
+		AIEvent topEvent = this.lastTickEvent;
+
+		foreach(AIEvent e in currentTickEvents) {
+			if(e.precedence > topEvent.precedence) {
+				topEvent = e;
+			}
 		}
 
 		return topEvent;
 	}
 
 	/**
-	 * 
 	 * Update time dependent state variables
 	 */
 	private void updateTimeDependentVariables(float duration) {
 
 		// update hunger
-		if(duration >= this.lastTick + 60.0f) {
-			this.physicalState.increaseHunger(0.01f);
+		if(duration >= this.lastHungerTick + HUNGER_TICK_FREQUENCY) {
+			this.physicalState.increaseHunger(HUNGER_TICK_AMPLITUDE);
 
 			if(this.physicalState.hunger > HUNGER_THRESHOLD) {
-				this.mentalState.increaseAnger(0.01f);
-				this.currentTickEvents.Add(CatEvent.HUNGRY);
+				this.mentalState.increaseAnger(HANGRY_TICK_AMPLITUDE);
+				this.currentTickEvents.Add(new AIEvent(CatEvent.HUNGRY));
 			}
+
+			this.lastHungerTick = duration;
 		}
 
 		// update pain
-		if(duration >= this.lastTick + 5.0f) {
-			this.physicalState.decreasePain(0.1f);
+		if(duration >= this.lastPainTick + PAIN_DOWNTICK_FREQUENCY) {
+			this.physicalState.decreasePain(PAIN_DOWNTICK_AMPLITUDE);
+
+			this.lastPainTick = duration;
 		}
 
-		this.lastTick = duration;
+		// update events hash
+		/*if(duration >= this.lastTick + SECOND_TICK) {
+
+			foreach(AIEvent currentEvent in currentEvents.Keys) {
+				currentEvents[currentEvent]--;
+
+				if(currentEvents[currentEvent] == 0) {
+					currentEvents.Remove(currentEvent);
+				}
+			}
+
+			this.lastTick = duration;
+		}*/
 	}
 
 	/**
@@ -99,13 +125,22 @@ public class CatAI {
 		this.currentTickEvents.Clear();
 	}
 
-	public void addEvent(CatEvent e) {
+	public void addEvent(AIEvent e) {
 		this.currentTickEvents.Add(e);
 	}
 
-	public CatActiveState getCurrentActiveState() {
+	public ActiveState getActiveState() {
 		return this.currentActiveState;
 	}
 
-	private const float HUNGER_THRESHOLD = 7.0f;
+	private const float SECOND_TICK = 1.0f;
+
+	private const float HUNGER_TICK_FREQUENCY = 1.0f;
+	private const uint HUNGER_TICK_AMPLITUDE = 10;
+	private const uint HUNGER_THRESHOLD = 70;
+
+	private const uint HANGRY_TICK_AMPLITUDE = 1;
+
+	private const float PAIN_DOWNTICK_FREQUENCY = 5.0f;
+	private const uint PAIN_DOWNTICK_AMPLITUDE = 10;
 }

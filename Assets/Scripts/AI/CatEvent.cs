@@ -1,6 +1,4 @@
-﻿using System;
-
-public enum CatEvent {
+﻿public enum CatEvent  {
 	NONE,
 	DISTRACTED_BY_OBJECT,
 	PICKED_UP,

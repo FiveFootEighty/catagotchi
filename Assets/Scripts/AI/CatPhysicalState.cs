@@ -2,34 +2,38 @@
 
 public class CatPhysicalState {
 
-	public float hunger;
-	public float pain;
+	public uint hunger;
+	public uint pain;
+	public uint stamina;
+	public uint energy;
 
 	public CatPhysicalState() {
-		this.hunger = 0.0f;
-		this.pain = 0.0f;
+		this.hunger = 0;
+		this.pain = 0;
+		this.stamina = 100;
+		this.energy = 0;
 	}
 
-	public void increaseHunger(float increment) {
-		if(this.hunger < 1.0f) {
+	public void increaseHunger(uint increment) {
+		if(this.hunger < 100) {
 			this.hunger += increment;
 		}
 	}
 
-	public void decreaseHunger(float decrement) {
-		if(this.hunger > 0.0f) {
+	public void decreaseHunger(uint decrement) {
+		if(this.hunger > 0) {
 			this.hunger -= decrement;
 		}
 	}
 
-	public void increasePain(float increment) {
-		if(this.pain < 1.0f) {
+	public void increasePain(uint increment) {
+		if(this.pain < 100) {
 			this.pain += increment;
 		}
 	}
 
-	public void decreasePain(float decrement) {
-		if(this.pain > 0.0f) {
+	public void decreasePain(uint decrement) {
+		if(this.pain > 0) {
 			this.pain -= decrement;
 		}
 	}

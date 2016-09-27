@@ -1,2 +1,4 @@
 ﻿
-public enum ActiveState {}
+public interface ActiveState {
+	void Update();
+}
