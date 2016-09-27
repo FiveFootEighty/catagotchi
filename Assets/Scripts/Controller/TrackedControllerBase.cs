@@ -3,6 +3,13 @@ using System.Collections;
 
 public class TrackedControllerBase : MonoBehaviour {
 
+    /*
+     * To implement the TrackedControllerBase add this script to the Controller gameobject. Scripts to implement new controls
+     * dont need to impement or extend this class but need to be placed on the same Controller game object and need to get
+     * a reference to this class. In the new control class implement a listener class from this file, override the methods,
+     * and add the new control script with the RegisterListener methods. Then, whenever a button action is fired from the physical
+     * device, this base class will listen for it then notify all the appropriate listeners that have been registered. 
+     */
     public const int TRACKPAD_NONE = -1;
     public const int TRACKPAD_CENTER = 0;
     public const int TRACKPAD_RIGHT = 1;
@@ -21,11 +28,21 @@ public class TrackedControllerBase : MonoBehaviour {
     private Valve.VR.EVRButtonId menuButton = Valve.VR.EVRButtonId.k_EButton_ApplicationMenu;
     private Valve.VR.EVRButtonId axis0 = Valve.VR.EVRButtonId.k_EButton_Axis0;
 
-    private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
-    private SteamVR_TrackedObject trackedObj;
-
+    [HideInInspector]
+    public SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+    [HideInInspector]
+    public SteamVR_TrackedObject trackedObj;
+    [HideInInspector]
     public GameObject steamVRObject;
 
+    /// <summary>
+    /// Listener interface for the Vive controller trigger button.
+    /// 
+    /// Implement OnTriggerPress, OnTriggerPressUp, and OnTriggerPressDown and
+    /// register the listener with RegisterTriggerListener to receive callbacks.
+    /// 
+    /// To stop receiving callbacks UnregisterTriggerListener
+    /// </summary>
     public interface TrackedControllerTriggerListener
     {
         void OnTriggerPress();
@@ -34,6 +51,14 @@ public class TrackedControllerBase : MonoBehaviour {
     }
     private ArrayList triggerListeners = new ArrayList();
 
+    /// <summary>
+    /// Listener interface for the Vive controller grip button.
+    /// 
+    /// Implement OnGripPress, OnGripPressUp, and OnGripPressDown and
+    /// register the listener with RegisterGripListener to receive callbacks.
+    /// 
+    /// To stop receiving callbacks UnregisterGripListener
+    /// </summary>
     public interface TrackedControllerGripListener
     {
         void OnGripPress();
@@ -42,6 +67,14 @@ public class TrackedControllerBase : MonoBehaviour {
     }
     private ArrayList gripListeners = new ArrayList();
 
+    /// <summary>
+    /// Listener interface for the Vive controller menu button.
+    /// 
+    /// Implement OnMenuPress, OnMenuPressUp, and OnMenuPressDown and
+    /// register the listener with RegisterMenuListener to receive callbacks.
+    /// 
+    /// To stop receiving callbacks UnregisterMenuListener
+    /// </summary>
     public interface TrackedControllerMenuListener
     {
         void OnMenuPress();
@@ -50,6 +83,14 @@ public class TrackedControllerBase : MonoBehaviour {
     }
     private ArrayList menuListeners = new ArrayList();
 
+    /// <summary>
+    /// Listener interface for the Vive controller trackpad button.
+    /// 
+    /// Implement OnTrackpadPress, OnTrackpadPressUp, and OnTrackpadPressDown and
+    /// register the listener with RegisterTrackpadListener to receive callbacks.
+    /// 
+    /// To stop receiving callbacks UnregisterTrackpadListener
+    /// </summary>
     public interface TrackedControllerTrackpadListener
     {
         void OnTrackpadTouched(int location);
@@ -178,64 +219,112 @@ public class TrackedControllerBase : MonoBehaviour {
     }
 
     
-
+    /// <summary>
+    /// Cause a haptic feedback pulse for x milliseconds on this controller.
+    /// </summary>
+    /// <param name="milliseconds"></param>
     public void Pulse(ushort milliseconds)
     {
         controller.TriggerHapticPulse(milliseconds);
     }
 
+
+
+
     /*
      *  Trigger callbacks
      */
+     /// <summary>
+     /// Register a trigger listener to listen for Vive controller trigger button events.
+     /// </summary>
+     /// <param name="listener"></param>
     public void RegisterTriggerListener(TrackedControllerTriggerListener listener)
     {
         triggerListeners.Add(listener);
     }
-
+    /// <summary>
+    /// Unregsiter a trigger listener. The listener parameter will no longer receive Vive controller trigger button events.
+    /// </summary>
+    /// <param name="listener"></param>
     public void UnregisterTriggerListener(TrackedControllerTriggerListener listener)
     {
         triggerListeners.Remove(listener);
     }
 
+
+
+
     /*
      *  Grip callbacks
      */
+    /// <summary>
+    /// Register a grip listener to listen for Vive controller grip button events.
+    /// </summary>
+    /// <param name="listener"></param>
     public void RegisterGripListener(TrackedControllerGripListener listener)
     {
         gripListeners.Add(listener);
     }
-
+    /// <summary>
+    /// Unregsiter a grip listener. The listener parameter will no longer receive Vive controller grip button events.
+    /// </summary>
+    /// <param name="listener"></param>
     public void UnregisterGripListener(TrackedControllerGripListener listener)
     {
         gripListeners.Remove(listener);
     }
 
+
+
+
     /*
      *  Menu callbacks
      */
+    /// <summary>
+    /// Register a menu listener to listen for Vive controller menu button events.
+    /// </summary>
+    /// <param name="listener"></param>
     public void RegisterMenuListener(TrackedControllerMenuListener listener)
     {
         menuListeners.Add(listener);
     }
-
+    /// <summary>
+    /// Unregsiter a menu listener. The listener parameter will no longer receive Vive controller menu button events.
+    /// </summary>
+    /// <param name="listener"></param>
     public void UnregisterMenuListener(TrackedControllerMenuListener listener)
     {
         menuListeners.Remove(listener);
     }
 
+
+
+
     /*
-     *  Track Pad callbacks
+     *  Trackpad callbacks
      */
+    /// <summary>
+    /// Register a trackpad listener to listen for Vive controller trackpad button events.
+    /// </summary>
+    /// <param name="listener"></param>
     public void RegisterTrackpadListener(TrackedControllerTrackpadListener listener)
     {
         trackpadListeners.Add(listener);
     }
-
+    /// <summary>
+    /// Unregsiter a trackpad listener. The listener parameter will no longer receive Vive controller trackpad button events.
+    /// </summary>
+    /// <param name="listener"></param>
     public void UnregisterTrackpadListener(TrackedControllerTrackpadListener listener)
     {
         trackpadListeners.Remove(listener);
     }
 
+
+
+    /*
+     * Get the string literal for the given location. This is primaly for debugging the trackpad code.
+     */
     protected string GetTrackPadLocationName(int location)
     {
         switch (location)
@@ -262,6 +351,9 @@ public class TrackedControllerBase : MonoBehaviour {
         return "TRACKPAD_NONE";
     }
 
+    /*
+     * Get the int constant variable for the given vector2 position, likely taken from the tracked controller trackpad.
+     */
     private int GetTrackPadLocation(Vector2 position)
     {
         if (position != null)

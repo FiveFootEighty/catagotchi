@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedControllerTriggerListener, TrackedControllerBase.TrackedControllerGripListener
+public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedControllerTriggerListener
 {
 
     private TrackedControllerBase trackedControllerBase;
@@ -14,12 +14,17 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     public bool isGrabbed = false;
     public Vector3 velocity;
     Vector3 previousPosition = Vector3.zero;
+    private Transform controllerModel;
 
-    // Use this for initialization
+    private Transform model;
+
+    public Animator animator;
+
     void Start () {
         trackedControllerBase = GetComponentInParent<TrackedControllerBase>();
         trackedControllerBase.RegisterTriggerListener(this);
-        trackedControllerBase.RegisterGripListener(this);
+
+        controllerModel = transform.Find("Model");
 
         isGrabbed = false;
         isHighlighted = false;
@@ -40,6 +45,8 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     }
     public void OnTriggerPressUp()
     {
+        animator.SetBool("ShouldGrab", false);
+
         if (isGrabbed)
         {
             UngrabObject();
@@ -47,31 +54,12 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     }
     public void OnTriggerPressDown()
     {
+        animator.SetBool("ShouldGrab", true);
+
         if (isHighlighted && !isGrabbed && selectedObject != null)
         {
             UnhighlightObject(selectedObject);
             GrabObject();
-        }
-    }
-
-
-
-
-
-    public void OnGripPress()
-    {
-
-    }
-    public void OnGripPressUp()
-    {
-
-    }
-    public void OnGripPressDown()
-    {
-        if (isGrabbed)
-        {
-            selectedObject.GetComponent<SelectableObject>().Freeze();
-            UngrabObject();
         }
     }
 
@@ -90,7 +78,7 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
 
     void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject == selectedObject && isHighlighted)
+        if (collider.gameObject == selectedObject && isHighlighted && !isGrabbed)
         {
             UnhighlightObject(collider.gameObject);
         }
@@ -105,6 +93,8 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
         isHighlighted = false;
         isGrabbed = true;
         selectedObject.GetComponent<SelectableObject>().OnGrab(this);
+
+        controllerModel.gameObject.SetActive(false);
     }
 
     void UngrabObject()
@@ -113,6 +103,8 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
         selectedObject.GetComponent<SelectableObject>().OnUngrab(this);
         selectedObject.GetComponent<Rigidbody>().velocity = velocity;
         selectedObject = null;
+
+        controllerModel.gameObject.SetActive(true);
     }
 
     void HighlightObject(GameObject gameObject)
