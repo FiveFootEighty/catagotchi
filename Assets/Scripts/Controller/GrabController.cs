@@ -14,7 +14,7 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     public bool isGrabbed = false;
     public Vector3 velocity;
     Vector3 previousPosition = Vector3.zero;
-    private Transform controllerModel;
+    public Transform handModel;
 
     private Transform model;
 
@@ -23,8 +23,6 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     void Start () {
         trackedControllerBase = GetComponentInParent<TrackedControllerBase>();
         trackedControllerBase.RegisterTriggerListener(this);
-
-        controllerModel = transform.Find("Model");
 
         isGrabbed = false;
         isHighlighted = false;
@@ -69,7 +67,11 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.GetComponent<SelectableObject>() != null)
+        if (collider.gameObject != selectedObject && isHighlighted && !isGrabbed)
+        {
+            UnhighlightObject(selectedObject);
+        }
+        if (collider.gameObject.GetComponent<GrabbableObject>() != null && !isGrabbed)
         {
             // can select this one  
             HighlightObject(collider.gameObject);
@@ -92,31 +94,31 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     {
         isHighlighted = false;
         isGrabbed = true;
-        selectedObject.GetComponent<SelectableObject>().OnGrab(this);
+        selectedObject.GetComponent<GrabbableObject>().OnGrab(this);
 
-        controllerModel.gameObject.SetActive(false);
+        handModel.gameObject.SetActive(false);
     }
 
     void UngrabObject()
     {
         isGrabbed = false;
-        selectedObject.GetComponent<SelectableObject>().OnUngrab(this);
+        selectedObject.GetComponent<GrabbableObject>().OnUngrab(this);
         selectedObject.GetComponent<Rigidbody>().velocity = velocity;
         selectedObject = null;
 
-        controllerModel.gameObject.SetActive(true);
+        handModel.gameObject.SetActive(true);
     }
 
     void HighlightObject(GameObject gameObject)
     {
         selectedObject = gameObject;
         isHighlighted = true;
-        selectedObject.GetComponent<SelectableObject>().OnHighlight(this);
+        selectedObject.GetComponent<GrabbableObject>().OnHighlight(this);
     }
 
     void UnhighlightObject(GameObject gameObject)
     {
         isHighlighted = false;
-        selectedObject.GetComponent<SelectableObject>().OnUnhighlight(this);
+        selectedObject.GetComponent<GrabbableObject>().OnUnhighlight(this);
     }
 }
