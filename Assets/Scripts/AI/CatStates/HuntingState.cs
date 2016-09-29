@@ -4,11 +4,13 @@ using System.Collections;
 
 public class HuntingState : ActiveState {
 
-	public HuntingState() {
+	public HuntingState(CatAI cat) : base(cat) {
 		Debug.Log("Hunting for food!");
+
+		// setup initial animations/navigation for hunting
 	}
 
-	public void Update() {
+	public override void Update() {
 		
 	}
 }

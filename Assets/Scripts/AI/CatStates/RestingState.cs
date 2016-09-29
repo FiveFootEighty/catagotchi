@@ -4,11 +4,11 @@ using System.Collections;
 
 public class RestingState : ActiveState {
 
-	public RestingState() {
+	public RestingState(CatAI cat) : base(cat) {
 		Debug.Log("Resting and licking");
 	}
 
-	public void Update() {
+	public override void Update() {
 
 	}
 }

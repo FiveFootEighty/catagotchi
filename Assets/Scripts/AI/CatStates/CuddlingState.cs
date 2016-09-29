@@ -4,12 +4,12 @@ using System.Collections;
 
 public class CuddlingState : ActiveState {
 
-	public CuddlingState() {
+	public CuddlingState(CatAI cat) : base(cat) {
 		Debug.Log("Cuddling!");
 	}
 
-	public void Update() {
-		Debug.Log("Cuddle tick");
+	public override void Update() {
+		//Debug.Log("Cuddle tick");
 	}
 }
 
