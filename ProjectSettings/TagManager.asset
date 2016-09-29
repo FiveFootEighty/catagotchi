@@ -6,6 +6,9 @@ TagManager:
   tags:
   - SelectableObject
   - Wall
+  - CatBody
+  - InteractionPoint
+  - InsideInteractionPoint
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - UsableItem
   - SelectableObject
   - IgnoreUsableItems
-  - 
+  - CatBody
   - 
   - 
   - 

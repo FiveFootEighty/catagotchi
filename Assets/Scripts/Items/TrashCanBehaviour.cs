@@ -5,7 +5,7 @@ public class TrashCanBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.GetComponent<SelectableObject>() != null)
+        if (collider.gameObject.GetComponent<InteractionBase>() != null)
         {
             Destroy(collider.gameObject);
         }
