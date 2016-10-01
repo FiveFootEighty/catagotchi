@@ -67,6 +67,7 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
 
     void OnTriggerEnter(Collider collider)
     {
+        Debug.Log(collider.name);
         if (collider.gameObject != selectedObject && isHighlighted && !isGrabbed)
         {
             UnhighlightObject(selectedObject);
