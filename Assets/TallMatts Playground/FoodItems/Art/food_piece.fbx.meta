@@ -1,39 +1,15 @@
 fileFormatVersion: 2
-guid: 136a515d41bb0bb43b2ef200119e0c35
-timeCreated: 1475170726
+guid: b395beb55d57af5479a43c17b7360162
+timeCreated: 1475206985
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cylinder
-    100004: Cylinder_001
-    100006: Cylinder_002
-    100008: Cylinder_003
-    100010: //RootNode
-    400000: Cube
-    400002: Cylinder
-    400004: Cylinder_001
-    400006: Cylinder_002
-    400008: Cylinder_003
-    400010: //RootNode
-    2300000: Cube
-    2300002: Cylinder
-    2300004: Cylinder_001
-    2300006: Cylinder_002
-    2300008: Cylinder_003
-    3300000: Cube
-    3300002: Cylinder
-    3300004: Cylinder_001
-    3300006: Cylinder_002
-    3300008: Cylinder_003
-    4300000: Cylinder_003
-    4300002: Cylinder_002
-    4300004: Cylinder_001
-    4300006: Cylinder
-    4300008: Cube
-    7400000: Default Take
-    9500000: //RootNode
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Sphere
   materials:
     importMaterials: 1
     materialName: 0
@@ -77,7 +53,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -92,7 +68,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
