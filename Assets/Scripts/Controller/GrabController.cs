@@ -67,7 +67,6 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collider.name);
         if (collider.gameObject != selectedObject && isHighlighted && !isGrabbed)
         {
             UnhighlightObject(selectedObject);
@@ -95,7 +94,10 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     {
         isHighlighted = false;
         isGrabbed = true;
-        selectedObject.GetComponent<GrabbableObject>().OnGrab(this);
+        if (selectedObject.GetComponent<GrabbableObject>() != null)
+        {
+            selectedObject.GetComponent<GrabbableObject>().OnGrab(this);
+        }
 
         handModel.gameObject.SetActive(false);
     }
@@ -103,7 +105,10 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     void UngrabObject()
     {
         isGrabbed = false;
-        selectedObject.GetComponent<GrabbableObject>().OnUngrab(this);
+        if (selectedObject.GetComponent<GrabbableObject>() != null)
+        {
+            selectedObject.GetComponent<GrabbableObject>().OnUngrab(this);
+        }
         selectedObject.GetComponent<Rigidbody>().velocity = velocity;
         selectedObject = null;
 
@@ -114,12 +119,18 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
     {
         selectedObject = gameObject;
         isHighlighted = true;
-        selectedObject.GetComponent<GrabbableObject>().OnHighlight(this);
+        if (selectedObject.GetComponent<GrabbableObject>() != null)
+        {
+            selectedObject.GetComponent<GrabbableObject>().OnHighlight(this);
+        }
     }
 
     void UnhighlightObject(GameObject gameObject)
     {
         isHighlighted = false;
-        selectedObject.GetComponent<GrabbableObject>().OnUnhighlight(this);
+        if (selectedObject.GetComponent<GrabbableObject>() != null)
+        {
+            selectedObject.GetComponent<GrabbableObject>().OnUnhighlight(this);
+        }
     }
 }

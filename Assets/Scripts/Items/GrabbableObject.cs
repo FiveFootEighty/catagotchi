@@ -6,24 +6,24 @@ public class GrabbableObject : InteractionBase {
     private Rigidbody rigidbody;
 
     public float velocityFactor = 5000f;
-    private Vector3 positionDelta;
+    protected Vector3 positionDelta;
 
     public float rotationFactor = 400f;
-    private Quaternion rotationDelta;
+    protected Quaternion rotationDelta;
     
     public bool shouldHighlight;
     public Material highlightMaterial;
-    private Material[] savedMaterials;
-    private Material[] highlightMaterials;
+    protected Material[] savedMaterials;
+    protected Material[] highlightMaterials;
 
     public bool useOtherTransform;
     public Transform otherTransform;
 
-    private GrabController controller;
-    private bool isGrabbed;
-    private bool isHighlighted;
+    protected GrabController controller;
+    protected bool isGrabbed;
+    protected bool isHighlighted;
 
-    private Transform interationPoint;
+    protected Transform interationPoint;
 
     
     void Start () {
