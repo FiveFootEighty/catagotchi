@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GrabbableObject : InteractionBase {
 
-    private Rigidbody rigidbody;
+    protected Rigidbody rigidbody;
 
     public float velocityFactor = 5000f;
     protected Vector3 positionDelta;
@@ -55,6 +55,13 @@ public class GrabbableObject : InteractionBase {
 
             rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
         }
+
+        PostUpdate();
+    }
+
+    public virtual void PostUpdate()
+    {
+
     }
 
     public void OnGrab(GrabController controller)
@@ -73,12 +80,26 @@ public class GrabbableObject : InteractionBase {
         interationPoint.position = controller.transform.position;
         interationPoint.rotation = controller.transform.rotation;
         interationPoint.SetParent(transform, true);
+
+        AfterOnGrab();
     }
 
     public void OnUngrab(GrabController controller)
     {
         this.controller = null;
         isGrabbed = false;
+
+        AfterOnUnGrab();
+    }
+
+    public virtual void AfterOnGrab()
+    {
+
+    }
+
+    public virtual void AfterOnUnGrab()
+    {
+
     }
 
     public void OnHighlight(GrabController controller)
