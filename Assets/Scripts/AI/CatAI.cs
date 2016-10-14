@@ -18,11 +18,11 @@ using System.Collections;
  */
 public class CatAI : MonoBehaviour {
 
-	private CatStateMachine stateMachine;
+	private CatBrain stateMachine;
 
 	// Use this for initialization
 	void Start () {
-		this.stateMachine = new CatStateMachine(this, new RoamingState(this));
+		this.stateMachine = new CatBrain(this, new RoamingState(this));
 	}
 
 	void Update() {
@@ -41,5 +41,9 @@ public class CatAI : MonoBehaviour {
 		if(other.gameObject.CompareTag("Player")) {
 			this.stateMachine.addEvent(new AIEvent(CatEvent.PET, 8));
 		}
+	}
+
+	public CatBrain getStateMachine() {
+		return this.stateMachine;
 	}
 }

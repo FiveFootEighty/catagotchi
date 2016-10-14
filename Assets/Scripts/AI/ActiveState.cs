@@ -1,5 +1,5 @@
 ﻿
-public abstract class ActiveState {
+public class ActiveState {
 
 	protected CatAI cat;
 
@@ -7,5 +7,12 @@ public abstract class ActiveState {
 		this.cat = cat;
 	}
 
-	public abstract void Update();
+	/**
+	 * General behavior
+	 */
+	public void Update() {
+		
+	}
+
+
 }

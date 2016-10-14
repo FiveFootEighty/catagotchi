@@ -9,7 +9,4 @@ public class RoamingState : ActiveState {
 
 	}
 
-	public override void Update() {
-		//Debug.Log("Still Roaming");
-	}
 }

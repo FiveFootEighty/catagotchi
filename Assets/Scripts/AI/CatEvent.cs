@@ -5,5 +5,6 @@
 	FOOD,
 	HUNGRY,
 	PET,
-	BORED
+	BORED,
+	FINISHED
 }

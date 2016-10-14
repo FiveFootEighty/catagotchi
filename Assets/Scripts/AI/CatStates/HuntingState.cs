@@ -10,8 +10,5 @@ public class HuntingState : ActiveState {
 		// setup initial animations/navigation for hunting
 	}
 
-	public override void Update() {
-		
-	}
 }
 

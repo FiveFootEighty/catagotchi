@@ -4,6 +4,7 @@ using UnityEngine;
 public class AIEvent {
 
 	public int precedence;
+	public int lifeSpan = 1; // in seconds
 
 	public Transform location;
 
