@@ -5,7 +5,7 @@ public class GrabbableObject : InteractionBase {
 
     protected Rigidbody rigidbody;
 
-    public float velocityFactor = 5000f;
+    public float velocityFactor = 7500f;
     protected Vector3 positionDelta;
 
     public float rotationFactor = 400f;
@@ -15,6 +15,9 @@ public class GrabbableObject : InteractionBase {
     public Material highlightMaterial;
     protected Material[] savedMaterials;
     protected Material[] highlightMaterials;
+
+    public bool shouldUseGhost;
+    public Transform ghost;
 
     public bool useOtherTransform;
     public Transform otherTransform;
@@ -122,6 +125,17 @@ public class GrabbableObject : InteractionBase {
                 }
                 GetComponent<Renderer>().materials = highlightMaterials;
             }
+            if (shouldUseGhost)
+            {
+                ghost.gameObject.SetActive(true);
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if (transform.GetChild(i).name != ghost.name)
+                    {
+                        transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                }
+            }
         }
     }
 
@@ -133,6 +147,17 @@ public class GrabbableObject : InteractionBase {
         if (shouldHighlight)
         {
             GetComponent<Renderer>().materials = savedMaterials;
+        }
+        if (shouldUseGhost)
+        {
+            ghost.gameObject.SetActive(false);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).name != ghost.name)
+                {
+                    transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
         }
     }
 

@@ -13,6 +13,8 @@ public class HandleObject : GrabbableObject
     private bool isLocked = false;
     private float mass;
 
+    private float startAngle = 0f;
+
     void Start () {
         mass = hinge.transform.GetComponent<Rigidbody>().mass;
     }
@@ -29,8 +31,8 @@ public class HandleObject : GrabbableObject
 
             angle = Mathf.Atan2(hingeLocation.position.z - controller.transform.position.z, hingeLocation.position.x - controller.transform.position.x) * Mathf.Rad2Deg;
             angle -= 90;
-
-            while(angle < 180)
+            
+            while (angle < 180)
             {
                 angle += 360;
             }
@@ -60,6 +62,11 @@ public class HandleObject : GrabbableObject
 
             hinge.transform.RotateAround(hingeLocation.position, hinge.axis, diff);
         }
+    }
+
+    public override void AfterOnGrab()
+    {
+        startAngle = (Mathf.Atan2(hingeLocation.position.z - controller.transform.position.z, hingeLocation.position.x - controller.transform.position.x) * Mathf.Rad2Deg);
     }
 
     private void LockHinge()
