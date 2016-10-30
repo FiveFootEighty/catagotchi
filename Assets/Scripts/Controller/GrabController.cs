@@ -4,8 +4,8 @@ using System.Collections;
 public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedControllerTriggerListener
 {
 
-    private TrackedControllerBase trackedControllerBase;
-
+    [HideInInspector]
+    public TrackedControllerBase trackedControllerBase;
     [HideInInspector]
     public GameObject selectedObject;
     [HideInInspector]
