@@ -10,7 +10,7 @@ public class HandleObject : GrabbableObject
     private float angle;
     private Vector3 previousControllerPos;
 
-    private bool isLocked = false;
+    private bool isLocked = true;
     private float mass;
 
     private float minInputAngle = 0;
@@ -18,6 +18,10 @@ public class HandleObject : GrabbableObject
     private bool isMaxWrap = false;
 
     private float startAngle = 0f;
+
+    public AudioClip openSound;
+    public AudioClip closeSound;
+    public AudioSource audioSource;
 
     // if the axis is == 1
     //      add the parent angle to the limits
@@ -154,11 +158,23 @@ public class HandleObject : GrabbableObject
     {
         isLocked = true;
         hinge.transform.GetComponent<Rigidbody>().mass = 5000;
+
+        if (audioSource != null)
+        {
+            audioSource.clip = closeSound;
+            audioSource.Play();
+        }
     }
 
     private void UnlockHinge()
     {
         isLocked = false;
         hinge.transform.GetComponent<Rigidbody>().mass = mass;
+
+        if (audioSource != null)
+        {
+            audioSource.clip = openSound;
+            audioSource.Play();
+        }
     }
 }

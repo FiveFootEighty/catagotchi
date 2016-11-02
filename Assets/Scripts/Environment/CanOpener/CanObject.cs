@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PateObject : GrabbableObject {
+public class CanObject : GrabbableObject {
 
     private Transform pate;
     private CanOpenerBehavior canOpenerBehavior;
@@ -53,6 +53,7 @@ public class PateObject : GrabbableObject {
 
             pate.GetComponent<MeshCollider>().enabled = true;
             pate.GetComponent<Rigidbody>().isKinematic = false;
+            pate.GetComponent<PateBehavior>().Release();
             pate.parent = null;
             pate = null;
         }

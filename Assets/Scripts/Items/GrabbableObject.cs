@@ -31,7 +31,6 @@ public class GrabbableObject : InteractionBase {
 
     protected Transform interationPoint;
 
-    
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
 
@@ -106,6 +105,14 @@ public class GrabbableObject : InteractionBase {
     public virtual void AfterOnUnGrab()
     {
 
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (GetComponent<SoundEffect>() != null)
+        {
+            GetComponent<SoundEffect>().PlaySound(collision.relativeVelocity.magnitude/10f);
+        }
     }
 
     public void OnHighlight(GrabController controller)

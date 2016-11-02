@@ -45,8 +45,18 @@ public class TeethBehavior : MonoBehaviour {
             {
                 Destroy(canOpener.placedCan.Find("Top").gameObject);
                 canOpener.placedCan.Find("Pate").gameObject.SetActive(true);
-                canOpener.placedCan.GetComponent<PateObject>().opened = true;
+                canOpener.placedCan.GetComponent<CanObject>().opened = true;
+
+                canOpener.OnCanPuntured();
             }
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.transform == canOpener.placedCan && canOpener.placedCan.Find("Top") == null)
+        {
+            canOpener.OnCanOpened();
         }
     }
 }
