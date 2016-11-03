@@ -11,8 +11,10 @@ public class ActiveState {
 	 * General behavior
 	 */
 	public void Update() {
-		
+		// doing nothing at the moment
 	}
 
-
+	protected void changeStates(ActiveState newState) {
+		cat.getBrain().setActiveState(newState);
+	}
 }

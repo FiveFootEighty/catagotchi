@@ -8,6 +8,7 @@ public class CuddlingState : ActiveState {
 	private float lastPet;
 
 	public CuddlingState(CatAI cat) : base(cat) {
+		Debug.Log("Cuddling!");
 		animator = cat.GetComponent<Animator>();
 
 		animator.SetBool("PET", true);
@@ -19,7 +20,7 @@ public class CuddlingState : ActiveState {
 
 		if((Time.time - lastPet) > 5.0f) {
 			animator.SetBool("PET", false);
-			cat.getStateMachine().addEvent(new AIEvent(CatEvent.FINISHED, 1));
+			cat.getBrain().addEvent(new AIEvent(CatEvent.FINISHED, 1));
 		}
 	}
 }

@@ -18,18 +18,18 @@ using System.Collections;
  */
 public class CatAI : MonoBehaviour {
 
-	private CatBrain stateMachine;
+	private CatBrain brain;
 
 	// Use this for initialization
 	void Start () {
-		this.stateMachine = new CatBrain(this, new RoamingState(this));
+		this.brain = new CatBrain(this, new RoamingState(this));
 	}
 
 	void Update() {
-		this.stateMachine.getActiveState().Update();
+		this.brain.getActiveState().Update();
 
 		// should be the last thing to happen
-		this.stateMachine.update(Time.time);
+		this.brain.update(Time.time);
 	}
 
 	/*
@@ -39,11 +39,11 @@ public class CatAI : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.CompareTag("Player")) {
-			this.stateMachine.addEvent(new AIEvent(CatEvent.PET, 8));
+			this.brain.addEvent(new AIEvent(CatEvent.PET, 2));
 		}
 	}
 
-	public CatBrain getStateMachine() {
-		return this.stateMachine;
+	public CatBrain getBrain() {
+		return this.brain;
 	}
 }

@@ -14,24 +14,20 @@ public class CatBrain {
 	private ActiveState currentActiveState;
 	private CatPhysicalState physicalState;
 
-	/*
-	 * Explore the idea of making currentEvents a combination set / array of Linked Lists 
-	 * (or some other weird data structure) where each index indicates duration (in seconds) 
-	 * so that I can give events a lifespan (that can be renewed)
-	 */
-	//private Dictionary<AIEvent, int> currentEvents;
-	private HashSet<AIEvent> currentEvents;
+	private EventQueue eventQueue;
+	private const float EVENT_UPDATE_INTERVAL = 1.0f;
 
 	private float lastTick = 0.0f;
 	private float lastHungerTick = 0.0f;
 	private float lastPainTick = 0.0f;
+	private float lastEventTick = 0.0f;
 
 	public CatBrain(CatAI cat, ActiveState initialActiveState) {
 		this.cat = cat;
 		this.currentActiveState = initialActiveState;
 		this.physicalState = new CatPhysicalState();
 		this.mentalState = new MentalState();
-		this.currentEvents = new HashSet<AIEvent>();
+		this.eventQueue = new EventQueue(EVENT_UPDATE_INTERVAL);
 	}
 
 	public CatBrain(CatAI cat)
@@ -40,20 +36,9 @@ public class CatBrain {
 		this.currentActiveState = new RestingState(this.cat);
 		this.physicalState = new CatPhysicalState();
 		this.mentalState = new MentalState();
-		this.currentEvents = new HashSet<AIEvent>();
+		this.eventQueue = new EventQueue(EVENT_UPDATE_INTERVAL);
 	}
 
-	/**
-	 * Maintain an updated event queue so that States can ask the brain
-	 * what event is most current and pressing
-	 */ 
-	private void updateEventQueue(float duration) {
-		
-		/*foreach(AIEvent e in currentEvents) {
-			
-		}*/
-
-	}
 
 	/**
 	 * Update time dependent state variables
@@ -66,7 +51,7 @@ public class CatBrain {
 
 			if(this.physicalState.hunger > HUNGER_THRESHOLD) {
 				this.mentalState.increaseAnger(HANGRY_TICK_AMPLITUDE);
-				this.currentEvents.Add(new AIEvent(CatEvent.HUNGRY));
+				this.eventQueue.enqueue(new AIEvent(CatEvent.HUNGRY, 4));
 			}
 
 			this.lastHungerTick = duration;
@@ -79,6 +64,13 @@ public class CatBrain {
 			this.lastPainTick = duration;
 		}
 
+		// update Event Queue
+		if (duration >= this.lastEventTick + EVENT_TICK_FREQUENCY) {
+			this.eventQueue.update();
+
+			this.lastEventTick = duration;
+		}
+
 	}
 
 	/**
@@ -88,15 +80,21 @@ public class CatBrain {
 	 */
 	public void update(float gameDuration) {
 		this.updateTimeDependentVariables(gameDuration);
-		//this.updateEventQueue();
 	}
 
 	public void addEvent(AIEvent e) {
-		this.currentEvents.Add(e);
+		this.eventQueue.enqueue(e);
 	}
 
 	public ActiveState getActiveState() {
 		return this.currentActiveState;
+	}
+	public void setActiveState(ActiveState newState) {
+		this.currentActiveState = newState;
+	}
+
+	public AIEvent getPriority() {
+		return this.eventQueue.priority();
 	}
 
 	private const float SECOND_TICK = 1.0f;
@@ -109,4 +107,6 @@ public class CatBrain {
 
 	private const float PAIN_DOWNTICK_FREQUENCY = 5.0f;
 	private const uint PAIN_DOWNTICK_AMPLITUDE = 10;
+
+	private const float EVENT_TICK_FREQUENCY = 1.0f;
 }
