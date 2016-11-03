@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SelectableObject
   - Wall
+  - Cat
   - CatBody
   - InteractionPoint
   - InsideInteractionPoint
