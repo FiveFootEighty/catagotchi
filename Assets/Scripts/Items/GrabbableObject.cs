@@ -3,27 +3,30 @@ using System.Collections;
 
 public class GrabbableObject : InteractionBase {
 
-    private Rigidbody rigidbody;
+    protected Rigidbody rigidbody;
 
-    public float velocityFactor = 5000f;
-    private Vector3 positionDelta;
+    public float velocityFactor = 7500f;
+    protected Vector3 positionDelta;
 
     public float rotationFactor = 400f;
-    private Quaternion rotationDelta;
+    protected Quaternion rotationDelta;
     
     public bool shouldHighlight;
     public Material highlightMaterial;
-    private Material[] savedMaterials;
-    private Material[] highlightMaterials;
+    protected Material[] savedMaterials;
+    protected Material[] highlightMaterials;
+
+    public bool shouldUseGhost;
+    public Transform ghost;
 
     public bool useOtherTransform;
     public Transform otherTransform;
 
-    private GrabController controller;
-    private bool isGrabbed;
-    private bool isHighlighted;
+    protected GrabController controller;
+    protected bool isGrabbed;
+    protected bool isHighlighted;
 
-    private Transform interationPoint;
+    protected Transform interationPoint;
 
     
     void Start () {
@@ -55,6 +58,13 @@ public class GrabbableObject : InteractionBase {
 
             rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
         }
+
+        PostUpdate();
+    }
+
+    public virtual void PostUpdate()
+    {
+
     }
 
     public void OnGrab(GrabController controller)
@@ -73,12 +83,26 @@ public class GrabbableObject : InteractionBase {
         interationPoint.position = controller.transform.position;
         interationPoint.rotation = controller.transform.rotation;
         interationPoint.SetParent(transform, true);
+
+        AfterOnGrab();
     }
 
     public void OnUngrab(GrabController controller)
     {
         this.controller = null;
         isGrabbed = false;
+
+        AfterOnUnGrab();
+    }
+
+    public virtual void AfterOnGrab()
+    {
+
+    }
+
+    public virtual void AfterOnUnGrab()
+    {
+
     }
 
     public void OnHighlight(GrabController controller)
@@ -101,6 +125,17 @@ public class GrabbableObject : InteractionBase {
                 }
                 GetComponent<Renderer>().materials = highlightMaterials;
             }
+            if (shouldUseGhost)
+            {
+                ghost.gameObject.SetActive(true);
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if (transform.GetChild(i).name != ghost.name)
+                    {
+                        transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                }
+            }
         }
     }
 
@@ -112,6 +147,17 @@ public class GrabbableObject : InteractionBase {
         if (shouldHighlight)
         {
             GetComponent<Renderer>().materials = savedMaterials;
+        }
+        if (shouldUseGhost)
+        {
+            ghost.gameObject.SetActive(false);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).name != ghost.name)
+                {
+                    transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
         }
     }
 
