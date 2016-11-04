@@ -91,7 +91,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011451104420}
-  - 95: {fileID: 95000012811433418}
   m_Layer: 0
   m_Name: CatCafe_Walls
   m_TagString: Untagged
@@ -520,20 +519,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.5699997, y: 0, z: 6.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95000012811433418
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012812044618}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 56a3a24ebf97c487199e348e8df31b90, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
