@@ -27,6 +27,7 @@ GameObject:
   - 65: {fileID: 65000010989220206}
   - 65: {fileID: 65000011514455918}
   - 114: {fileID: 114000010580883414}
+  - 54: {fileID: 54000013652767226}
   m_Layer: 0
   m_Name: CatCafe_Bowl
   m_TagString: Untagged
@@ -83,6 +84,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013510479860}
   m_Mesh: {fileID: 4300000, guid: 1983d3e4d6d0846fb896ebe632328971, type: 3}
+--- !u!54 &54000013652767226
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013510479860}
+  serializedVersion: 2
+  m_Mass: 2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65000010134062110
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -154,10 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf28140d151aa94bac6bbd46e8453c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityFactor: 7500
+  velocityFactor: 15000
   rotationFactor: 400
-  shouldHighlight: 0
-  highlightMaterial: {fileID: 0}
+  shouldHighlight: 1
+  highlightMaterial: {fileID: 2100000, guid: f94fa6c3b4a783d48aa9ef64a938b341, type: 2}
   shouldUseGhost: 0
   ghost: {fileID: 0}
   useOtherTransform: 0
