@@ -96,6 +96,13 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
         isGrabbed = true;
         if (selectedObject.GetComponent<GrabbableObject>() != null)
         {
+            if (selectedObject.GetComponent<GrabbableObject>().isGrabbed)
+            {
+                selectedObject.GetComponent<GrabbableObject>().controller.UngrabObject();
+                selectedObject.GetComponent<GrabbableObject>().OnHighlight(this);
+                selectedObject.GetComponent<GrabbableObject>().OnUnhighlight(this);
+            }
+            
             selectedObject.GetComponent<GrabbableObject>().OnGrab(this);
         }
 
@@ -107,7 +114,7 @@ public class GrabController : MonoBehaviour, TrackedControllerBase.TrackedContro
         isGrabbed = false;
         if (selectedObject.GetComponent<GrabbableObject>() != null)
         {
-            selectedObject.GetComponent<GrabbableObject>().OnUngrab(this);
+            selectedObject.GetComponent<GrabbableObject>().OnUngrab();
         }
         selectedObject.GetComponent<Rigidbody>().velocity = velocity;
         selectedObject = null;

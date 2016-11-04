@@ -22,9 +22,12 @@ public class GrabbableObject : InteractionBase {
     public bool useOtherTransform;
     public Transform otherTransform;
 
-    protected GrabController controller;
-    protected bool isGrabbed;
-    protected bool isHighlighted;
+    [HideInInspector]
+    public GrabController controller;
+    [HideInInspector]
+    public bool isGrabbed;
+    [HideInInspector]
+    public bool isHighlighted;
 
     protected Transform interationPoint;
 
@@ -87,9 +90,9 @@ public class GrabbableObject : InteractionBase {
         AfterOnGrab();
     }
 
-    public void OnUngrab(GrabController controller)
+    public void OnUngrab()
     {
-        this.controller = null;
+        controller = null;
         isGrabbed = false;
 
         AfterOnUnGrab();
@@ -141,21 +144,24 @@ public class GrabbableObject : InteractionBase {
 
     public void OnUnhighlight(GrabController controller)
     {
-        this.controller = null;
-        isHighlighted = false;
-        
-        if (shouldHighlight)
+        if (controller == this.controller)
         {
-            GetComponent<Renderer>().materials = savedMaterials;
-        }
-        if (shouldUseGhost)
-        {
-            ghost.gameObject.SetActive(false);
-            for (int i = 0; i < transform.childCount; i++)
+            this.controller = null;
+            isHighlighted = false;
+
+            if (shouldHighlight)
             {
-                if (transform.GetChild(i).name != ghost.name)
+                GetComponent<Renderer>().materials = savedMaterials;
+            }
+            if (shouldUseGhost)
+            {
+                ghost.gameObject.SetActive(false);
+                for (int i = 0; i < transform.childCount; i++)
                 {
-                    transform.GetChild(i).gameObject.SetActive(true);
+                    if (transform.GetChild(i).name != ghost.name)
+                    {
+                        transform.GetChild(i).gameObject.SetActive(true);
+                    }
                 }
             }
         }
