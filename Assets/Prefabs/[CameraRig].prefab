@@ -4233,6 +4233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportReticle: {fileID: 0}
+  otherGrabController: {fileID: 114000012695259894}
   head: {fileID: 0}
 --- !u!114 &114000010416947204
 MonoBehaviour:
@@ -4360,6 +4361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportReticle: {fileID: 0}
+  otherGrabController: {fileID: 114000012625610212}
   head: {fileID: 0}
 --- !u!114 &114000011954137840
 MonoBehaviour:
@@ -4399,6 +4401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a8d727dd4868a4b8e4d1064b113d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackedControllerBase: {fileID: 0}
   selectedObject: {fileID: 0}
   isHighlighted: 0
   isGrabbed: 0
@@ -4416,6 +4419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a8d727dd4868a4b8e4d1064b113d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackedControllerBase: {fileID: 0}
   selectedObject: {fileID: 0}
   isHighlighted: 0
   isGrabbed: 0
