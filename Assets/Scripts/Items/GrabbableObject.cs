@@ -111,7 +111,7 @@ public class GrabbableObject : InteractionBase {
     {
         if (GetComponent<SoundEffect>() != null)
         {
-            GetComponent<SoundEffect>().PlaySound(collision.relativeVelocity.magnitude/10f);
+            GetComponent<SoundEffect>().PlaySound(collision.relativeVelocity.magnitude/6f);
         }
     }
 

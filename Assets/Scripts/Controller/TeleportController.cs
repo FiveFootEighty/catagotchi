@@ -77,18 +77,15 @@ public class TeleportController : MonoBehaviour, TrackedControllerBase.TrackedCo
             Vector3 distanceFromCenter = trackedControllerBase.steamVRObject.transform.position - head.transform.position;
             distanceFromCenter.y = 0;
 
-           
 
-            // god I hate this saved Parents thing so much
-            
-           
-            
+
+            LockSelectedObject();
 
             /* ----------------- */
             trackedControllerBase.steamVRObject.transform.position = teleportReticle.transform.position + distanceFromCenter;
             /* ----------------- */
 
-
+            UnlockSelectedObject();
             
             isTeleporting = false;
             teleportReticle.SetActive(false);
@@ -100,7 +97,7 @@ public class TeleportController : MonoBehaviour, TrackedControllerBase.TrackedCo
     private void LockSelectedObject()
     {
         savedParents = new ArrayList();
-
+        
         if (grabController.isGrabbed && grabController.selectedObject.GetComponent<ContainerBehavior>() != null)
         {
             ArrayList containedObjects = grabController.selectedObject.GetComponent<ContainerBehavior>().containedObjects;
