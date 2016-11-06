@@ -13,6 +13,8 @@ public class StartGameBooklet : GrabbableObject, TrackedControllerBase.TrackedCo
 
     private bool isTurning = false;
     private bool isSliding = false;
+    
+    private AudioSource audioSource;
 
     public void Start()
     {
@@ -20,6 +22,8 @@ public class StartGameBooklet : GrabbableObject, TrackedControllerBase.TrackedCo
 
         velocityFactor /= rigidbody.mass;
         rotationFactor /= rigidbody.mass;
+
+        audioSource = GetComponent<AudioSource>();
 
         UpdatePage();
     }
@@ -30,6 +34,7 @@ public class StartGameBooklet : GrabbableObject, TrackedControllerBase.TrackedCo
         {
             currentPage++;
             StartCoroutine(Rotate(pages[currentPage - 1], currentPage/5f, 180-currentPage / 5f, 0.3f));
+            audioSource.Play();
         }
     }
 
@@ -39,6 +44,7 @@ public class StartGameBooklet : GrabbableObject, TrackedControllerBase.TrackedCo
         {
             currentPage--;
             StartCoroutine(Rotate(pages[currentPage], 180 - currentPage / 5f, (pages.Length - 1 - currentPage) / 5f, 0.3f));
+            audioSource.Play();
         }
     }
 

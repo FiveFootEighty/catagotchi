@@ -89,6 +89,8 @@ GameObject:
   - 64: {fileID: 64000010709688732}
   - 114: {fileID: 114000010973728286}
   - 65: {fileID: 65000010404619626}
+  - 82: {fileID: 82000011983487304}
+  - 114: {fileID: 114000010320232964}
   m_Layer: 0
   m_Name: CanOpener_Main
   m_TagString: Untagged
@@ -622,6 +624,95 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14282508, y: 0.025, z: 0.14282508}
   m_Center: {x: 0, y: -0.02, z: 0}
+--- !u!82 &82000011983487304
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011901693946}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114000010320232964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011901693946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b0d3e55d2a7194b95579e313c51756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVolume: 0
+  maxVolume: 1
+  randomizedPitchMarginMin: -1
+  randomizedPitchMarginMax: 1
 --- !u!114 &114000010973728286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -634,6 +725,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placedCan: {fileID: 0}
+  punctureSound: {fileID: 8300000, guid: 910cb58a63d3eb74589f23b2a53ce81b, type: 3}
+  openedSound: {fileID: 8300000, guid: 79fd9bd9b3829674099049b733e9b352, type: 3}
+  canPlacedSound: {fileID: 8300000, guid: 9dd3e23e687c39643ada1f9a6a1b62a1, type: 3}
 --- !u!114 &114000011481226824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -653,6 +747,9 @@ MonoBehaviour:
   ghost: {fileID: 0}
   useOtherTransform: 0
   otherTransform: {fileID: 0}
+  controller: {fileID: 0}
+  isGrabbed: 0
+  isHighlighted: 0
   hinge: {fileID: 59000012217784174}
   hingeLocation: {fileID: 4000012969720408}
 --- !u!114 &114000012209565814
