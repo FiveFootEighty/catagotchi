@@ -16,13 +16,8 @@ public class StartGameBooklet : GrabbableObject, TrackedControllerBase.TrackedCo
     
     private AudioSource audioSource;
 
-    public void Start()
+    public override void AfterStart()
     {
-        rigidbody = GetComponent<Rigidbody>();
-
-        velocityFactor /= rigidbody.mass;
-        rotationFactor /= rigidbody.mass;
-
         audioSource = GetComponent<AudioSource>();
 
         UpdatePage();

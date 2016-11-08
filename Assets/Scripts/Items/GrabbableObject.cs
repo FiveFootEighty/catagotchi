@@ -4,12 +4,6 @@ using System.Collections;
 public class GrabbableObject : InteractionBase {
 
     protected Rigidbody rigidbody;
-
-    public float velocityFactor = 7500f;
-    protected Vector3 positionDelta;
-
-    public float rotationFactor = 400f;
-    protected Quaternion rotationDelta;
     
     public bool shouldHighlight;
     public Material highlightMaterial;
@@ -34,34 +28,44 @@ public class GrabbableObject : InteractionBase {
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
 
-        velocityFactor /= rigidbody.mass;
-        rotationFactor /= rigidbody.mass;
+        rigidbody.maxAngularVelocity = float.MaxValue;
+
+        AfterStart();
+    }
+
+    public virtual void AfterStart()
+    {
+
     }
 	
-	void Update () {
-
+    void FixedUpdate()
+    {
         if (isGrabbed && controller != null)
         {
-            // calculate a velocity to apply to the object to get it to it's original interaction point. Then apply it to the rigidbody
-            positionDelta = controller.transform.position - interationPoint.position;
+            float maxDistanceDelta = 10f;
 
-            rigidbody.velocity = positionDelta * velocityFactor * Time.fixedDeltaTime;
+            Quaternion rotationDelta;
+            Vector3 positionDelta;
 
             float angle;
             Vector3 axis;
 
             rotationDelta = controller.transform.rotation * Quaternion.Inverse(interationPoint.rotation);
+            positionDelta = controller.transform.position - interationPoint.position;
+
             rotationDelta.ToAngleAxis(out angle, out axis);
 
-            while (angle > 180)
+            angle = (angle > 180 ? angle -= 360 : angle);
+
+            if (angle != 0)
             {
-                angle -= 360;
+                Vector3 angularTarget = angle * axis;
+                rigidbody.angularVelocity = Vector3.MoveTowards(rigidbody.angularVelocity, angularTarget, maxDistanceDelta);
             }
 
-            rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
+            Vector3 velocityTarget = positionDelta / Time.fixedDeltaTime;
+            rigidbody.velocity = Vector3.MoveTowards(rigidbody.velocity, velocityTarget, maxDistanceDelta);
         }
-
-        PostUpdate();
     }
 
     public virtual void PostUpdate()
