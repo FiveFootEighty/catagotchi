@@ -8,12 +8,7 @@ public class CanObject : GrabbableObject {
 
     public bool opened = false;
     
-	void Start () {
-        rigidbody = GetComponent<Rigidbody>();
-
-        velocityFactor /= rigidbody.mass;
-        rotationFactor /= rigidbody.mass;
-
+	public override void AfterStart () {
         pate = transform.Find("Pate");
 	}
 	
