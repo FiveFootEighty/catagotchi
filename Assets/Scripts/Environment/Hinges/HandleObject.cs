@@ -28,7 +28,7 @@ public class HandleObject : GrabbableObject
     // if the axis is == -1
     //      subtract the parent angle from the limits
 
-    void Start () {
+    void Start() {
         mass = hinge.transform.GetComponent<Rigidbody>().mass;
 
         

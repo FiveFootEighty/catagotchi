@@ -24,6 +24,8 @@ GameObject:
   - 65: {fileID: 65000011292519234}
   - 54: {fileID: 54000013923116546}
   - 114: {fileID: 114000012777793758}
+  - 82: {fileID: 82000011811759690}
+  - 114: {fileID: 114000014045110002}
   m_Layer: 0
   m_Name: CatCafe_Poop
   m_TagString: Untagged
@@ -101,12 +103,86 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012080442220}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 513341afdf2b07e4fbc561a0546fa0a9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.10041753, y: 0.07163301, z: 0.09375109}
   m_Center: {x: -0.00008114055, y: -0.0002685748, z: -0.0029258467}
+--- !u!82 &82000011811759690
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012080442220}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 47974e7d0f3dd5d46aedf957e1a1579a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114000012777793758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,11 +194,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf28140d151aa94bac6bbd46e8453c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityFactor: 15000
-  rotationFactor: 400
   shouldHighlight: 1
   highlightMaterial: {fileID: 2100000, guid: f94fa6c3b4a783d48aa9ef64a938b341, type: 2}
   shouldUseGhost: 0
   ghost: {fileID: 0}
   useOtherTransform: 0
   otherTransform: {fileID: 0}
+  controller: {fileID: 0}
+  isGrabbed: 0
+  isHighlighted: 0
+--- !u!114 &114000014045110002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012080442220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b0d3e55d2a7194b95579e313c51756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVolume: 0
+  maxVolume: 1
+  randomizedPitchMarginMin: -1
+  randomizedPitchMarginMax: 1

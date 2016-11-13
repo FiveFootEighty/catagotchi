@@ -70,4 +70,60 @@ public class SoundEffect : MonoBehaviour {
             audioSource.pitch = savedPitch;
         }
     }
+
+    public void PlaySound(PhysicMaterial materialObject, PhysicMaterial contactObject)
+    {
+        PlaySound(materialObject, contactObject, 1);
+    }
+
+    public void PlaySound(PhysicMaterial materialObject, PhysicMaterial contactObject, float intensity)
+    {
+        PlaySound(GetSoundCombination(materialObject.name, contactObject.name), intensity);
+    }
+
+    private AudioClip GetSoundCombination(string materialObjectName, string contactObjectName)
+    {
+        if (materialObjectName.Equals("PlasticPhysicMaterial (Instance)"))
+        {
+            if (contactObjectName.Equals("GenericPhysicMaterial (Instance)"))
+            {
+                return SoundEffectRegistry.instance().plasticTap;
+            } else if (contactObjectName.Equals("SandPhysicMaterial (Instance)"))
+            {
+                return SoundEffectRegistry.instance().sandMoved;
+            }
+        } else if (materialObjectName.Equals("CanPhysicMaterial (Instance)"))
+        {
+            if (contactObjectName.Equals("GenericPhysicMaterial (Instance)"))
+            {
+                return SoundEffectRegistry.instance().canTap;
+            }
+            else if (contactObjectName.Equals("SandPhysicMaterial (Instance)"))
+            {
+                return SoundEffectRegistry.instance().sandMoved;
+            }
+        } else if (materialObjectName.Equals("PoopPhysicMaterial (Instance)"))
+        {
+            if (contactObjectName.Equals("GenericPhysicMaterial (Instance)"))
+            {
+                return SoundEffectRegistry.instance().poopSplat;
+            }
+            else if (contactObjectName.Equals("SandPhysicMaterial (Instance)"))
+            {
+                return SoundEffectRegistry.instance().sandMoved;
+            }
+        } else if (materialObjectName.Equals("PatePhysicMaterial (Instance)"))
+        {
+            if (contactObjectName.Equals("GenericPhysicMaterial (Instance)"))
+            {
+                return SoundEffectRegistry.instance().pateSplat;
+            }
+            else if (contactObjectName.Equals("SandPhysicMaterial (Instance)"))
+            {
+                return SoundEffectRegistry.instance().sandMoved;
+            }
+        }
+
+        return null;
+    }
 }

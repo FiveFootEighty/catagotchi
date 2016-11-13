@@ -101,7 +101,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012385342216}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 12c4bdf90eed14e4abe991aaabce7a83, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -118,11 +118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf28140d151aa94bac6bbd46e8453c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityFactor: 15000
-  rotationFactor: 400
   shouldHighlight: 1
   highlightMaterial: {fileID: 2100000, guid: f94fa6c3b4a783d48aa9ef64a938b341, type: 2}
   shouldUseGhost: 0
   ghost: {fileID: 0}
   useOtherTransform: 0
   otherTransform: {fileID: 0}
+  controller: {fileID: 0}
+  isGrabbed: 0
+  isHighlighted: 0

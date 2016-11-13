@@ -719,7 +719,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010045964626}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -733,7 +733,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012809181172}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ac7be512c1b26ac4f9807a1fea01f3ed, type: 2}
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
@@ -745,7 +745,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011897632508}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -757,7 +757,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012184793448}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -769,7 +769,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010543356088}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -781,7 +781,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010088304500}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -793,7 +793,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010721653150}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -805,7 +805,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010764747924}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -817,11 +817,11 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010045964626}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.045, z: 0.132}
+  m_Size: {x: 0.1, y: 0.035, z: 0.1}
   m_Center: {x: 0, y: 0.0025, z: 0}
 --- !u!65 &65000014162038038
 BoxCollider:
@@ -829,7 +829,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010030349668}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -841,7 +841,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010205935254}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1017,8 +1017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf101d0e5138c594da544b8deab5589b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityFactor: 15000
-  rotationFactor: 750
   shouldHighlight: 0
   highlightMaterial: {fileID: 0}
   shouldUseGhost: 1
@@ -1050,7 +1048,7 @@ SphereCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012809181172}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ac7be512c1b26ac4f9807a1fea01f3ed, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2

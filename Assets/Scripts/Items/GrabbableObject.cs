@@ -40,7 +40,7 @@ public class GrabbableObject : InteractionBase {
 	
     void FixedUpdate()
     {
-        if (isGrabbed && controller != null)
+        if (rigidbody != null && isGrabbed && controller != null)
         {
             float maxDistanceDelta = 10f;
 
@@ -66,6 +66,8 @@ public class GrabbableObject : InteractionBase {
             Vector3 velocityTarget = positionDelta / Time.fixedDeltaTime;
             rigidbody.velocity = Vector3.MoveTowards(rigidbody.velocity, velocityTarget, maxDistanceDelta);
         }
+
+        PostUpdate();
     }
 
     public virtual void PostUpdate()
@@ -115,7 +117,15 @@ public class GrabbableObject : InteractionBase {
     {
         if (GetComponent<SoundEffect>() != null)
         {
-            GetComponent<SoundEffect>().PlaySound(collision.relativeVelocity.magnitude/6f);
+            if (GetComponent<Collider>() != null && GetComponent<Collider>().material != null && 
+                collision.gameObject.GetComponent<Collider>() != null && collision.gameObject.GetComponent<Collider>().material != null)
+            {
+                GetComponent<SoundEffect>().PlaySound(GetComponent<Collider>().material, collision.gameObject.GetComponent<Collider>().material, collision.relativeVelocity.magnitude / 6f);
+            } else
+            {
+                GetComponent<SoundEffect>().PlaySound(collision.relativeVelocity.magnitude / 6f);
+            }
+            
         }
     }
 

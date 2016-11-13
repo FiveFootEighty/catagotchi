@@ -90,7 +90,6 @@ GameObject:
   - 114: {fileID: 114000010973728286}
   - 65: {fileID: 65000010404619626}
   - 82: {fileID: 82000011983487304}
-  - 114: {fileID: 114000010320232964}
   m_Layer: 0
   m_Name: CanOpener_Main
   m_TagString: Untagged
@@ -141,7 +140,6 @@ GameObject:
   - 33: {fileID: 33000014135225674}
   - 23: {fileID: 23000013887887708}
   - 114: {fileID: 114000012209565814}
-  - 64: {fileID: 64000012890887676}
   - 65: {fileID: 65000012664074218}
   m_Layer: 0
   m_Name: Teeth_Piece
@@ -191,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010908036970}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.608, y: 1.065, z: 0.955}
+  m_LocalPosition: {x: 0.608, y: 1.065, z: 1.237}
   m_LocalScale: {x: 1.0000007, y: 1, z: 1.0000007}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_Children:
@@ -554,7 +552,7 @@ HingeJoint:
   m_Anchor: {x: -0.0038, y: -0.2897, z: 0.00094}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.09155835, y: 0.105427265, z: -0.079938054}
+  m_ConnectedAnchor: {x: -0.09155841, y: 0.105427265, z: -0.079938054}
   m_UseSpring: 1
   m_Spring:
     spring: 10
@@ -582,24 +580,12 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011901693946}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 233c84c465ed08342b69aaece3fbb22b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300006, guid: 0c90efb36063e38438bb3cad10c42e02, type: 3}
---- !u!64 &64000012890887676
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013479874990}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300002, guid: 0c90efb36063e38438bb3cad10c42e02, type: 3}
 --- !u!65 &65000010404619626
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -610,7 +596,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.175, y: 0.075, z: 0.175}
+  m_Size: {x: 0.25, y: 0.15, z: 0.25}
   m_Center: {x: -0.125, y: -0.025, z: 0}
 --- !u!65 &65000012664074218
 BoxCollider:
@@ -618,7 +604,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013479874990}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 233c84c465ed08342b69aaece3fbb22b, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -634,16 +620,16 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 0.31364506
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -698,21 +684,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114000010320232964
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011901693946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b0d3e55d2a7194b95579e313c51756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minVolume: 0
-  maxVolume: 1
-  randomizedPitchMarginMin: -1
-  randomizedPitchMarginMax: 1
 --- !u!114 &114000010973728286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -739,8 +710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264d1083f9486cf498b3d664ea75ba05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityFactor: 15000
-  rotationFactor: 400
   shouldHighlight: 0
   highlightMaterial: {fileID: 0}
   shouldUseGhost: 0
@@ -765,7 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lever: {fileID: 4000010293607600}
   topY: 0.0664507
-  bottomY: 0.0125
+  bottomY: 0.01
   topAngle: 23
   bottomAngle: 55
   canOpener: {fileID: 0}
@@ -775,7 +744,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013940026332}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 233c84c465ed08342b69aaece3fbb22b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.03481688
