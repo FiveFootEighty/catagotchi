@@ -13,6 +13,7 @@ public class CanObject : GrabbableObject {
 	}
 	
 	public override void PostUpdate() {
+        
         if (opened && pate != null && ((transform.rotation.eulerAngles.x > 150 && transform.rotation.eulerAngles.x < 210) || (transform.rotation.eulerAngles.z > 150 && transform.rotation.eulerAngles.z < 210)))// && pate.gameObject.GetComponent<Rigidbody>() == null)
         {
             if (pate.GetComponent<Rigidbody>() == null)
@@ -45,7 +46,6 @@ public class CanObject : GrabbableObject {
     {
         if (collider.transform == pate)
         {
-
             pate.GetComponent<MeshCollider>().enabled = true;
             pate.GetComponent<Rigidbody>().isKinematic = false;
             pate.GetComponent<PateBehavior>().Release();
