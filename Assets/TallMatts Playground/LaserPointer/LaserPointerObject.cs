@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LaserPointerObject : GrabbableObject {
+public class LaserPointerObject : HoldableObject {
 
     public Transform redDot;
 

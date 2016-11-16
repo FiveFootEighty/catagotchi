@@ -609,7 +609,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.14282508, y: 0.025, z: 0.14282508}
-  m_Center: {x: 0, y: -0.02, z: 0}
+  m_Center: {x: 0, y: -0.025, z: 0}
 --- !u!82 &82000011983487304
 AudioSource:
   m_ObjectHideFlags: 1

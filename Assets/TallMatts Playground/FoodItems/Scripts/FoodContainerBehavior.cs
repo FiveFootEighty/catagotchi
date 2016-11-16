@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FoodContainerBehavior : MonoBehaviour {
+public class FoodContainerBehavior : HoldableObject {
 
     public Transform foodPiece;
     public Transform exitPoint;
@@ -10,14 +10,8 @@ public class FoodContainerBehavior : MonoBehaviour {
 
     private float waitTime = 0.2f;
     private float nextSpawnTime = 0;
-
-	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	public override void PostUpdate () {
 
         if (foodCount > 0)
         {

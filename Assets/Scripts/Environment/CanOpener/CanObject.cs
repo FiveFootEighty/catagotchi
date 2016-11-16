@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CanObject : GrabbableObject {
+public class CanObject : HoldableObject {
 
     private Transform pate;
     private CanOpenerBehavior canOpenerBehavior;

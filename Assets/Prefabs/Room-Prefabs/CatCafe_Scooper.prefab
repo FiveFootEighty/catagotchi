@@ -23,7 +23,7 @@ GameObject:
   - 23: {fileID: 23000013089767196}
   - 64: {fileID: 64000011482450194}
   - 54: {fileID: 54000010389669198}
-  - 114: {fileID: 114000010502285092}
+  - 114: {fileID: 114000011617110082}
   m_Layer: 8
   m_Name: CatCafe_Scooper
   m_TagString: Untagged
@@ -107,7 +107,7 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: a9e2f1e8556e949a086e3730953f4d00, type: 3}
---- !u!114 &114000010502285092
+--- !u!114 &114000011617110082
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010253994670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf28140d151aa94bac6bbd46e8453c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 23a2a2aef2e440647a8dbb33c99c24e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shouldHighlight: 1

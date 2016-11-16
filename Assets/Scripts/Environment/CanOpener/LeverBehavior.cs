@@ -12,7 +12,12 @@ public class LeverBehavior : GrabbableObject
 
     private float startAngle = 0f;
 
-    void FixedUpdate()
+    void Start()
+    {
+
+    }
+
+    void Update()
     {
         if (isGrabbed && controller != null)
         {
