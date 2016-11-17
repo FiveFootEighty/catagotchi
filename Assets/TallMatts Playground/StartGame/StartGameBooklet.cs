@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StartGameBooklet : GrabbableObject, TrackedControllerBase.TrackedControllerTrackpadListener
+public class StartGameBooklet : HoldableObject, TrackedControllerBase.TrackedControllerTrackpadListener
 {
 
     private int currentPage = 0;

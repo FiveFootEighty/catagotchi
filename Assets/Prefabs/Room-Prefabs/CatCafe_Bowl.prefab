@@ -26,12 +26,12 @@ GameObject:
   - 65: {fileID: 65000010134062110}
   - 65: {fileID: 65000010989220206}
   - 65: {fileID: 65000011514455918}
-  - 114: {fileID: 114000010580883414}
   - 54: {fileID: 54000013652767226}
   - 82: {fileID: 82000012136688768}
   - 114: {fileID: 114000010958460398}
   - 65: {fileID: 65000013229142666}
   - 114: {fileID: 114000010780185432}
+  - 114: {fileID: 114000014050774518}
   m_Layer: 0
   m_Name: CatCafe_Bowl
   m_TagString: Untagged
@@ -249,26 +249,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114000010580883414
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013510479860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf28140d151aa94bac6bbd46e8453c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shouldHighlight: 0
-  highlightMaterial: {fileID: 2100000, guid: f94fa6c3b4a783d48aa9ef64a938b341, type: 2}
-  shouldUseGhost: 0
-  ghost: {fileID: 0}
-  useOtherTransform: 0
-  otherTransform: {fileID: 0}
-  controller: {fileID: 0}
-  isGrabbed: 0
-  isHighlighted: 0
 --- !u!114 &114000010780185432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,3 +275,23 @@ MonoBehaviour:
   maxVolume: 1
   randomizedPitchMarginMin: -1
   randomizedPitchMarginMax: 1
+--- !u!114 &114000014050774518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013510479860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a2a2aef2e440647a8dbb33c99c24e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldHighlight: 1
+  highlightMaterial: {fileID: 2100000, guid: f94fa6c3b4a783d48aa9ef64a938b341, type: 2}
+  shouldUseGhost: 0
+  ghost: {fileID: 0}
+  useOtherTransform: 0
+  otherTransform: {fileID: 0}
+  controller: {fileID: 0}
+  isGrabbed: 0
+  isHighlighted: 0

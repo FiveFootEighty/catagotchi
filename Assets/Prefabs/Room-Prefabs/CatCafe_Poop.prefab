@@ -23,9 +23,9 @@ GameObject:
   - 23: {fileID: 23000010857786012}
   - 65: {fileID: 65000011292519234}
   - 54: {fileID: 54000013923116546}
-  - 114: {fileID: 114000012777793758}
   - 82: {fileID: 82000011811759690}
   - 114: {fileID: 114000014045110002}
+  - 114: {fileID: 114000013082585176}
   m_Layer: 0
   m_Name: CatCafe_Poop
   m_TagString: Untagged
@@ -183,7 +183,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114000012777793758
+--- !u!114 &114000013082585176
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012080442220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf28140d151aa94bac6bbd46e8453c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 23a2a2aef2e440647a8dbb33c99c24e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shouldHighlight: 1
