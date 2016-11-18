@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SoundEffectRegistry : MonoBehaviour {
+public class SoundEffectRegistry : MonoBehaviour
+{
 
-    public AudioClip plasticTap;
-    public AudioClip canTap;
-    public AudioClip poopSplat;
-    public AudioClip pateSplat;
+    public SoundEffectItem[] soundEffectItems;
 
-    public AudioClip sandMoved;
+    [System.Serializable]
+    public class SoundEffectItem
+    {
+        public AudioClip soundClip;
+        public PhysicMaterial materialObject;
+        public PhysicMaterial contactObject;
+    }
 
     private static SoundEffectRegistry soundEffectRegistry;
 
@@ -16,8 +20,6 @@ public class SoundEffectRegistry : MonoBehaviour {
     {
         if (soundEffectRegistry == null)
         {
-            // This is where the magic happens.
-            //  FindObjectOfType(...) returns the first AManager object in the scene.
             soundEffectRegistry = FindObjectOfType(typeof(SoundEffectRegistry)) as SoundEffectRegistry;
         }
 
@@ -29,5 +31,21 @@ public class SoundEffectRegistry : MonoBehaviour {
         }
 
         return soundEffectRegistry;
+    }
+
+    public AudioClip GetSoundCombination(string materialObjectName, string contactObjectName)
+    {
+        foreach (SoundEffectItem item in soundEffectItems)
+        {
+            if (contactObjectName.Contains(item.contactObject.name) && item.materialObject == null)
+            {
+                return item.soundClip;
+            } else if (item.materialObject != null && materialObjectName.Contains(item.materialObject.name) && contactObjectName.Contains(item.contactObject.name))
+            {
+                return item.soundClip;
+            }
+        }
+
+        return null;
     }
 }

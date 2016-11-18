@@ -51,8 +51,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648c76d22f7c4bf458ecf4d5e355f994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plasticTap: {fileID: 8300000, guid: 067c9051eefd6b24e8490553eb07f601, type: 3}
-  canTap: {fileID: 8300000, guid: 1b449d0c8677b7e4eae0ef9040795cd3, type: 3}
-  poopSplat: {fileID: 8300000, guid: 47974e7d0f3dd5d46aedf957e1a1579a, type: 3}
-  pateSplat: {fileID: 8300000, guid: 1ace9b20c9231f84cbd98ca66967c2d8, type: 3}
-  sandMoved: {fileID: 8300000, guid: f14bb62b627b5314e993a05916d54151, type: 3}
+  soundEffectItems:
+  - soundClip: {fileID: 8300000, guid: 067c9051eefd6b24e8490553eb07f601, type: 3}
+    materialObject: {fileID: 13400000, guid: 12c4bdf90eed14e4abe991aaabce7a83, type: 2}
+    contactObject: {fileID: 13400000, guid: 233c84c465ed08342b69aaece3fbb22b, type: 2}
+  - soundClip: {fileID: 8300000, guid: 1b449d0c8677b7e4eae0ef9040795cd3, type: 3}
+    materialObject: {fileID: 13400000, guid: 4cd1d09b7ef0c49408e6a1fdd927063f, type: 2}
+    contactObject: {fileID: 13400000, guid: 233c84c465ed08342b69aaece3fbb22b, type: 2}
+  - soundClip: {fileID: 8300000, guid: 47974e7d0f3dd5d46aedf957e1a1579a, type: 3}
+    materialObject: {fileID: 13400000, guid: 513341afdf2b07e4fbc561a0546fa0a9, type: 2}
+    contactObject: {fileID: 13400000, guid: 233c84c465ed08342b69aaece3fbb22b, type: 2}
+  - soundClip: {fileID: 8300000, guid: 1ace9b20c9231f84cbd98ca66967c2d8, type: 3}
+    materialObject: {fileID: 13400000, guid: ac7be512c1b26ac4f9807a1fea01f3ed, type: 2}
+    contactObject: {fileID: 13400000, guid: 233c84c465ed08342b69aaece3fbb22b, type: 2}
+  - soundClip: {fileID: 8300000, guid: ddbbb9272bc8e004291921effd0f49de, type: 3}
+    materialObject: {fileID: 0}
+    contactObject: {fileID: 13400000, guid: b5862aca7810d1e4ca468a5d9094ffd7, type: 2}
+  - soundClip: {fileID: 8300000, guid: f14bb62b627b5314e993a05916d54151, type: 3}
+    materialObject: {fileID: 0}
+    contactObject: {fileID: 13400000, guid: dd5f58ac09390cd498d71dfa942a0bb5, type: 2}
