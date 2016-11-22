@@ -4,6 +4,8 @@ using System.Collections;
 public class HandleObject : GrabbableObject
 {
 
+    private Rigidbody rb;
+
     public HingeJoint hinge;
     public Transform hingeLocation;
 
@@ -12,6 +14,7 @@ public class HandleObject : GrabbableObject
 
     private bool isLocked = true;
     private float mass;
+    private float angularDrag;
 
     private float minInputAngle = 0;
     private float maxInputAngle = 360;
@@ -30,8 +33,11 @@ public class HandleObject : GrabbableObject
 
     void Start() {
         mass = hinge.transform.GetComponent<Rigidbody>().mass;
+        angularDrag = hinge.transform.GetComponent<Rigidbody>().angularDrag;
+        hinge.transform.GetComponent<Rigidbody>().maxAngularVelocity = float.MaxValue;
 
-        
+        rb = GetComponent<Rigidbody>();
+
         if (hinge.axis.y == 1)
         {
             minInputAngle = hinge.limits.min + hinge.transform.parent.rotation.eulerAngles.y;
@@ -67,7 +73,6 @@ public class HandleObject : GrabbableObject
                 angle *= -1;
             }
             float parentAngle = hinge.transform.parent.rotation.eulerAngles.y;
-            //DebugBehavior.Log("angle: " + angle);
             float minMaxAngle = Limit(angle, 0, 360, 360);
             if (isMaxWrap)
             {
@@ -76,6 +81,16 @@ public class HandleObject : GrabbableObject
                 {
                     float diffMin = Mathf.Abs(minMaxAngle - minInputAngle);
                     float diffMax = Mathf.Abs(minMaxAngle - maxInputAngle);
+
+                    if (diffMin > 180)
+                    {
+                        diffMin = Mathf.Abs(minInputAngle - minMaxAngle + 360);
+                    }
+                    if (diffMax > 180)
+                    {
+                        diffMax = Mathf.Abs(maxInputAngle - minMaxAngle + 360);
+                    }
+
                     if (diffMax < diffMin)
                     {
                         // closer to max
@@ -106,13 +121,40 @@ public class HandleObject : GrabbableObject
                 // need to check if more than max
                 if (minMaxAngle > maxInputAngle)
                 {
-                    angle = maxInputAngle;
-                    if (!isLocked)
+
+                    float diffMin = Mathf.Abs(minMaxAngle - minInputAngle);
+                    float diffMax = Mathf.Abs(minMaxAngle - maxInputAngle);
+
+                    if (diffMin > 180)
                     {
-                        LockHinge();
+                        diffMin = Mathf.Abs(minInputAngle - minMaxAngle + 360);
                     }
-                }
-                if (minMaxAngle < minInputAngle)
+                    if (diffMax > 180)
+                    {
+                        diffMax = Mathf.Abs(maxInputAngle - minMaxAngle + 360);
+                    }
+                    
+                    if (diffMax < diffMin)
+                    {
+                        // closer to max
+                        angle = maxInputAngle;
+                        
+                        if (!isLocked)
+                        {
+                            LockHinge();
+                        }
+                    }
+                    else
+                    {
+                        // closer to min
+                        angle = minInputAngle;
+                        if (!isLocked)
+                        {
+                            LockHinge();
+                        }
+                    }
+                    
+                } else if (minMaxAngle < minInputAngle)
                 {
                     angle = minInputAngle;
                     if (!isLocked)
@@ -154,10 +196,20 @@ public class HandleObject : GrabbableObject
         startAngle = (Mathf.Atan2(hingeLocation.position.z - controller.transform.position.z, hingeLocation.position.x - controller.transform.position.x) * Mathf.Rad2Deg);
     }
 
-    private void LockHinge()
+    public override void AfterOnUnGrab()
+    {
+        
+    }
+
+    public void LockHinge()
     {
         isLocked = true;
+
+        mass = hinge.transform.GetComponent<Rigidbody>().mass;
+        angularDrag = hinge.transform.GetComponent<Rigidbody>().angularDrag;
+
         hinge.transform.GetComponent<Rigidbody>().mass = 5000;
+        hinge.transform.GetComponent<Rigidbody>().angularDrag = 5000;
 
         if (audioSource != null)
         {
@@ -166,10 +218,11 @@ public class HandleObject : GrabbableObject
         }
     }
 
-    private void UnlockHinge()
+    public void UnlockHinge()
     {
         isLocked = false;
         hinge.transform.GetComponent<Rigidbody>().mass = mass;
+        hinge.transform.GetComponent<Rigidbody>().angularDrag = angularDrag;
 
         if (audioSource != null)
         {
