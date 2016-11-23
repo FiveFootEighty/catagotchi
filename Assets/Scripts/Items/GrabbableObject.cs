@@ -66,7 +66,13 @@ public class GrabbableObject : InteractionBase {
             if (GetComponent<Collider>() != null && GetComponent<Collider>().material != null && 
                 collision.gameObject.GetComponent<Collider>() != null && collision.gameObject.GetComponent<Collider>().material != null)
             {
-                GetComponent<SoundEffect>().PlaySound(GetComponent<Collider>().material, collision.gameObject.GetComponent<Collider>().material, collision.relativeVelocity.magnitude / 6f);
+                if (SoundEffectRegistry.instance().GetSoundCombination(GetComponent<Collider>().material.name, collision.gameObject.GetComponent<Collider>().material.name) != null)
+                {
+                    GetComponent<SoundEffect>().PlaySound(GetComponent<Collider>().material, collision.gameObject.GetComponent<Collider>().material, collision.relativeVelocity.magnitude / 6f);
+                } else
+                {
+                    GetComponent<SoundEffect>().PlaySound(collision.relativeVelocity.magnitude / 6f);
+                }
             } else
             {
                 GetComponent<SoundEffect>().PlaySound(collision.relativeVelocity.magnitude / 6f);

@@ -22,7 +22,7 @@ public class PateBehavior : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        if (released)
+        if (released && !audioSource.isPlaying)
         {
             audioSource.Play();
         }

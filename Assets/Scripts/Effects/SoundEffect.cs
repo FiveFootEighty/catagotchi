@@ -14,9 +14,12 @@ public class SoundEffect : MonoBehaviour {
     public float randomizedPitchMarginMin = -1;
     public float randomizedPitchMarginMax = 1;
 
+    public bool waitForSoundToFinish = false;
+
     private AudioClip clip;
 
-	void Start () {
+    void Start()
+    {
         audioSource = GetComponent<AudioSource>();
         clip = audioSource.clip;
     }
@@ -41,6 +44,13 @@ public class SoundEffect : MonoBehaviour {
         if (clip == null)
         {
             return;
+        }
+        if (waitForSoundToFinish)
+        {
+            if (audioSource.isPlaying)
+            {
+                return;
+            }
         }
         if (!audioSource.isPlaying && !globalMute)
         {
