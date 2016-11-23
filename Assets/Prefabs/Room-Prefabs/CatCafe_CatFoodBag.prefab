@@ -21,6 +21,11 @@ GameObject:
   - 4: {fileID: 4000011002190754}
   - 33: {fileID: 33000013826752278}
   - 23: {fileID: 23000010057367642}
+  - 54: {fileID: 54000013940656630}
+  - 82: {fileID: 82000014196271026}
+  - 64: {fileID: 64000012508588738}
+  - 114: {fileID: 114000010762005484}
+  - 114: {fileID: 114000010252737404}
   m_Layer: 0
   m_Name: CatCafe_CatFoodBag
   m_TagString: Untagged
@@ -28,6 +33,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000013829386524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010506892306}
+  m_Layer: 0
+  m_Name: ExitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000010506892306
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013829386524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1324, y: 0.1889, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000011002190754}
+  m_RootOrder: 0
 --- !u!4 &4000011002190754
 Transform:
   m_ObjectHideFlags: 1
@@ -35,10 +68,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010447870802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.413, y: -0.076152086, z: 0.905}
+  m_LocalPosition: {x: -3.413, y: 0.187, z: 0.905}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000010506892306}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &23000010057367642
@@ -77,3 +111,142 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010447870802}
   m_Mesh: {fileID: 4300000, guid: 42b2eaa601ca3c34ca0924a9451fdced, type: 3}
+--- !u!54 &54000013940656630
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010447870802}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &64000012508588738
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010447870802}
+  m_Material: {fileID: 13400000, guid: 12c4bdf90eed14e4abe991aaabce7a83, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 42b2eaa601ca3c34ca0924a9451fdced, type: 3}
+--- !u!82 &82000014196271026
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010447870802}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 067c9051eefd6b24e8490553eb07f601, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114000010252737404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010447870802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f8de423ba95874b95c6c99a4574456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldHighlight: 1
+  highlightMaterial: {fileID: 2100000, guid: f94fa6c3b4a783d48aa9ef64a938b341, type: 2}
+  shouldUseGhost: 0
+  ghost: {fileID: 0}
+  useOtherTransform: 0
+  otherTransform: {fileID: 0}
+  controller: {fileID: 0}
+  isGrabbed: 0
+  isHighlighted: 0
+  foodPiece: {fileID: 4000010530827160, guid: a9869c8f1953f1546babdbd50dce893d, type: 2}
+  exitPoint: {fileID: 4000010506892306}
+  foodCount: 15
+--- !u!114 &114000010762005484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010447870802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b0d3e55d2a7194b95579e313c51756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVolume: 0
+  maxVolume: 1
+  randomizedPitchMarginMin: -1
+  randomizedPitchMarginMax: 1
