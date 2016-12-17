@@ -5,7 +5,7 @@ public class PateBehavior : MonoBehaviour {
 
     private AudioSource audioSource;
     private bool released = false;
-
+    
 	void Start () {
         audioSource = GetComponent<AudioSource>();
 	}
