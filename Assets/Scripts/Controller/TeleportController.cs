@@ -13,6 +13,8 @@ public class TeleportController : MonoBehaviour, TrackedControllerBase.TrackedCo
     private GrabController grabController;
     public GrabController otherGrabController;
 
+    public CatBehavior catBehavior;
+
     [HideInInspector]
     public GameObject head;
     
@@ -54,6 +56,9 @@ public class TeleportController : MonoBehaviour, TrackedControllerBase.TrackedCo
                     {
                         validTeleportSpot = true;
                         teleportReticle.transform.position = new Vector3(floorHit.point.x, floorHit.point.y + 0.01f, floorHit.point.z);
+
+                        // tell the cat we moved, this is hacky and should never ben done ever again
+                        catBehavior.PlayerTeleported();
                     }
                     else
                     {
